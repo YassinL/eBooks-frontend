@@ -1,0 +1,117 @@
+@import "../../_settings/variables";
+
+.componant {
+  &-home {
+    background-size: cover;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    &-citation {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 80%;
+      padding: 2%;
+      & h2 {
+        padding: 2%;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: $off-white;
+        font-weight: 600;
+      }
+    }
+    &-button {
+      padding: 8% 0;
+      & button {
+        font-weight: 500;
+        padding: 2%;
+        border-radius: 7px;
+        border: none;
+        background-color: $white;
+        color: $black-nice;
+        &:hover {
+          background-color: #78cc9b;
+          color: $white;
+        }
+      }
+    }
+    &-image {
+      border-radius: 10px;
+      background-color: $off-white;
+      height: 40vh;
+      width: 90vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & img {
+        border-radius: 10px;
+        height: 95%;
+        width: 95%;
+      }
+    }
+  }
+
+  &-categorie {
+    height: 30vh;
+
+    &-title {
+      padding: 5% 2%;
+    }
+    &-slider {
+      position: relative;
+      height: 10vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      &-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 2%;
+        border: 1px dashed $black-nice;
+        min-width: 50%;
+        transition: 0.5s;
+        & h2 {
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
+      &-left {
+        background: none;
+        position: absolute;
+        transform: translateY();
+        width: 8%;
+        height: 100%;
+        left: 0;
+        border: none;
+        outline: none;
+        transition: 0.5s;
+        &:hover {
+          background: rgba(0, 0, 0, 0.1);
+        }
+      }
+      &-right {
+        background: none;
+        position: absolute;
+        transform: translateY();
+        width: 8%;
+        height: 100%;
+        right: 0;
+        border: none;
+        outline: none;
+        transition: 0.5s;
+        &:hover {
+          background: rgba(0, 0, 0, 0.1);
+        }
+      }
+      & svg {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}

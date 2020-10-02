@@ -1,0 +1,10 @@
+@import "../../_settings/variables";
+
+.header {
+  position: fixed;
+  // background-color: $white;
+  background-color: transparent;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}

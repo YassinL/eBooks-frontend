@@ -1,0 +1,44 @@
+@import "../../_settings/variables";
+
+.searchMobile {
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-form {
+    display: flex;
+    justify-content: center;
+    background-color: $off-white;
+    border-radius: 25px;
+    height: 5vh;
+    width: 80%;
+    &-label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      &-input {
+        height: 40%;
+        padding: 2%;
+        border: none;
+        background-color: transparent;
+        &::placeholder {
+          color: $black-nice;
+        }
+      }
+      &-button {
+        height: 3vh;
+        border-radius: 50%;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+      & svg {
+        height: 100%;
+        width: auto;
+        color: $black-nice;
+      }
+    }
+  }
+}

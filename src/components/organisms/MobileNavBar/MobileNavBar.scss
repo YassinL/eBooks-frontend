@@ -1,0 +1,29 @@
+@import "../../_settings/variables";
+
+.mobile-navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: $off-white;
+  padding: 2%;
+  height: 8vh;
+  width: 100vw;
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  &-icon {
+    height: 6vh;
+    &-link {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+    }
+    svg {
+      color: $black-nice;
+      height: 100%;
+      width: auto;
+    }
+  }
+}
