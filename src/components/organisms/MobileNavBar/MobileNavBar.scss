@@ -3,6 +3,7 @@
 .mobile-navbar {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background-color: $off-white;
   padding: 2%;
   height: 8vh;
@@ -11,7 +12,7 @@
   position: fixed;
   bottom: 0;
   &-icon {
-    height: 6vh;
+    height: 5vh;
     &-link {
       display: flex;
       align-items: center;
@@ -21,7 +22,7 @@
       width: 100%;
     }
     svg {
-      color: $black-nice;
+      color: #5097ab;
       height: 100%;
       width: auto;
     }

@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.scss";
 import SearchMobile from "../SearchMobile/SearchMobile";
-
-// import fondecran from "../../../images/fondecran.jpeg";
+import ContextRecherche from "../../../contexts/ContextRecherche";
 
 export default function Header() {
+  const context = useContext(ContextRecherche);
+  const search = (searchValue) => {
+    context.setTitle(searchValue.title);
+    context.setAuthor(searchValue.author);
+    // context.SetGenreLivreId(searchValue);
+    // context.setRecherche(searchValue);
+  };
   return (
     <>
       <div className="header">
-        <SearchMobile />
+        <SearchMobile search={search} />
       </div>
     </>
   );

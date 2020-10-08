@@ -4,20 +4,29 @@ import Search from "../../atoms/SVG/Search";
 import "./SearchMobile.scss";
 
 const SearchMobile = (props) => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchForm, setSearchForm] = useState({
+    title: "",
+    author: "",
+  });
 
-  const handleSearchInputChanges = (e) => {
-    setSearchValue(e.target.value);
-  };
-
+  function handleChange(evt) {
+    const value = evt.target.value;
+    setSearchForm({
+      ...searchForm,
+      [evt.target.name]: value,
+    });
+  }
   const resetInputField = () => {
-    setSearchValue("");
+    setSearchForm({
+      title: "",
+      author: "",
+    });
   };
 
   const history = useHistory();
-  const callSearchFunction = (e) => {
-    e.preventDefault();
-    props.search(searchValue);
+  const callSearchFunction = (event) => {
+    event.preventDefault();
+    props.search(searchForm);
     resetInputField();
     history.push("/books");
   };
@@ -27,13 +36,21 @@ const SearchMobile = (props) => {
       <form className="searchMobile-form">
         <label htmlFor="" className="searchMobile-form-label">
           <input
-            value={searchValue}
-            onChange={handleSearchInputChanges}
+            name="title"
+            value={searchForm.title}
+            onChange={handleChange}
             type="search"
-            placeholder="Où allez-vous ?"
+            placeholder="Titre"
             className="searchMobile-form-label-input"
           />
-
+          <input
+            name="author"
+            value={searchForm.author}
+            onChange={handleChange}
+            type="search"
+            placeholder="Auteur"
+            className="searchMobile-form-label-input"
+          />
           <button
             onClick={callSearchFunction}
             className="searchMobile-form-label-button"

@@ -1,7 +1,9 @@
 @import "../../_settings/variables";
 
 .componant {
+  background-color: #5097ab;
   &-home {
+    overflow-y: scroll;
     background-size: cover;
     height: 60vh;
     display: flex;
@@ -54,10 +56,9 @@
   }
 
   &-categorie {
-    height: 30vh;
-
     &-title {
-      padding: 5% 2%;
+      text-align: center;
+      padding: 10% 0;
     }
     &-slider {
       position: relative;
@@ -67,16 +68,17 @@
       align-items: center;
       overflow: hidden;
       &-name {
+        background-color: #e4e4e4;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
         padding: 2%;
-        border: 1px dashed $black-nice;
-        min-width: 50%;
+        border-right: 1px solid $black-nice;
+        min-width: 34%;
         transition: 0.5s;
         & h2 {
-          font-size: 18px;
+          font-size: 14px;
           font-weight: 600;
         }
       }

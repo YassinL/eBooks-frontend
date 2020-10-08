@@ -1,0 +1,12 @@
+.modale {
+  & button {
+    cursor: pointer;
+    height: 4vh;
+    border: none;
+    outline: none;
+  }
+  & svg {
+    height: 100%;
+    width: auto;
+  }
+}

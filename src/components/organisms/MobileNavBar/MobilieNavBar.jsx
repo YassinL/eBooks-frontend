@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import HomeIcon from "../../atoms/SVG/HomeIcon";
 import LivreIcon from "../../atoms/SVG/LivreIcon";
-import ConnexionIcon from "../../atoms/SVG/ConnexionIcon";
+import LogOutIcon from "../../atoms/SVG/LogOutIcon";
+import ProfileIcon from "../../atoms/SVG/ProfileIcon";
 import PanierIcon from "../../atoms/SVG/PanierIcon";
 import "./MobileNavBar.scss";
+import ModaleSignUp from "../ModaleSignUp/ModaleSignUp";
+import ModaleSignIn from "../ModaleSignIn/ModaleSignIn";
+import AuthContext from "../../../contexts/AuthContext";
 
 export default function NavBar() {
   const [isHovered, setIsHovered] = useState(false);
@@ -19,6 +23,55 @@ export default function NavBar() {
     setIsHovered(false);
   };
 
+  const { state, dispatch } = useContext(AuthContext);
+
+  useEffect(() => {
+    return () => {};
+  }, [state]);
+
+  const SignUpIN = () => {
+    return (
+      <>
+        <ModaleSignUp />
+
+        <ModaleSignIn />
+      </>
+    );
+  };
+
+  const logOut = () => {
+    return dispatch({ type: "LOGOUT" });
+  };
+
+  const Profil = () => {
+    return (
+      <>
+        <div className="mobile-navbar-icon">
+          <Link to="/books">
+            <div className="mobile-navbar-icon-link">
+              <ProfileIcon />
+              <p>Profile</p>
+            </div>
+          </Link>
+        </div>
+        <div className="mobile-navbar-icon">
+          <Link to="/books">
+            <div className="mobile-navbar-icon-link" onClick={logOut}>
+              <LogOutIcon />
+              <p>Déconnexion</p>
+            </div>
+          </Link>
+        </div>
+      </>
+    );
+  };
+
+  const ProfilIsAuth = () => {
+    if (state.isAuthenticated) {
+      return <Profil />;
+    }
+    return <SignUpIN />;
+  };
   return (
     <>
       <div className="mobile-navbar">
@@ -30,7 +83,7 @@ export default function NavBar() {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               />
-              <h3>Accueil</h3>
+              <p>Accueil</p>
             </div>
           </Link>
         </div>
@@ -45,19 +98,13 @@ export default function NavBar() {
         <div className="mobile-navbar-icon">
           <Link to="/">
             <div className="mobile-navbar-icon-link">
-              <ConnexionIcon />
-              <p>Connexion</p>
-            </div>
-          </Link>
-        </div>
-        <div className="mobile-navbar-icon">
-          <Link to="/">
-            <div className="mobile-navbar-icon-link">
               <PanierIcon />
               <p>Panier</p>
             </div>
           </Link>
         </div>
+        <ModaleSignIn />
+        <ModaleSignUp />
       </div>{" "}
     </>
   );

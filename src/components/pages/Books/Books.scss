@@ -1,0 +1,51 @@
+@import "../../_settings/variables";
+.books {
+  overflow-y: scroll;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 10vh;
+  background-color: $white;
+  &-fiche {
+    margin: 5% 2% 0 2%;
+    // margin-top: 5%;
+    position: relative;
+    background-color: $off-white;
+    height: 30vh;
+    width: 42%;
+    box-shadow: 0px 5px 11px 0px rgba(173, 173, 173, 1);
+    &-photo {
+      position: absolute;
+      height: 85%;
+      width: 100%;
+      // margin: 7%;
+      & img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    &-description {
+      background-color: #f1efef;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      bottom: 0;
+      padding: 5%;
+      width: 100%;
+      & h4 {
+        font-weight: 600;
+        padding-bottom: 3%;
+        text-align: center;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

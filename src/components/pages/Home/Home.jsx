@@ -17,7 +17,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await Axios(`http://localhost:8080/api/genre`);
+      const result = await Axios(`http://localhost:8085/api/genre`);
       setGenres(result.data);
     };
 
@@ -54,7 +54,7 @@ export default function Home() {
           </div> */}
         </section>
         <section className="componant-categorie">
-          <h1 className="componant-categorie-title">Catégorie</h1>
+          <h1 className="componant-categorie-title">Catégories</h1>
           <div className="componant-categorie-slider">
             {genres.map((genre, index) => {
               return (
@@ -82,6 +82,9 @@ export default function Home() {
               <RightArrow />
             </button>
           </div>
+        </section>
+        <section>
+          <h1>Livres Populaires</h1>
         </section>
       </div>
     </>

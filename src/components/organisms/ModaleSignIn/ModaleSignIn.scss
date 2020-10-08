@@ -1,0 +1,15 @@
+@import "../../_settings/variables";
+
+.modale {
+  & button {
+    background-color: $off-white;
+    cursor: pointer;
+    height: 3vh;
+    border: none;
+    outline: none;
+  }
+  & svg {
+    height: 100%;
+    width: auto;
+  }
+}

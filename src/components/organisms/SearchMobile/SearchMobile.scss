@@ -11,12 +11,9 @@
     justify-content: center;
     background-color: $off-white;
     border-radius: 25px;
-    height: 5vh;
+    height: 10vh;
     width: 80%;
     &-label {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 100%;
       &-input {
         height: 40%;
