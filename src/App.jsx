@@ -1,4 +1,5 @@
-import React, { useReducer, useState } from "react";
+import Axios from "axios";
+import React, { useEffect, useReducer, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/organisms/Header/Header";
 import MobileNavBar from "./components/organisms/MobileNavBar/MobilieNavBar";
@@ -10,6 +11,12 @@ import AuthReducer from "./reducer/AuthReducer";
 
 import "./App.scss";
 
+const initialState = {
+  isAuthenticated: false,
+  token: null,
+  user: null,
+};
+
 export default function App() {
   // barre de recherche
   const [title, setTitle] = useState("");
@@ -20,8 +27,6 @@ export default function App() {
     setTitle,
     author,
     setAuthor,
-    // genreLivreId,
-    // setGenreLivreId,
   };
 
   const [state, dispatch] = useReducer(
@@ -32,6 +37,27 @@ export default function App() {
     state,
     dispatch,
   };
+
+  useEffect(() => {
+    console.log("tutu");
+    const fetchUser = async () => {
+      const token = localStorage.getItem("token");
+      console.log(token);
+      if (token) {
+        const result = await Axios(`http://localhost:8085/api/user/me`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log(result.data);
+        dispatch({
+          type: "LOAD_USER",
+          payload: result.data,
+        });
+      }
+    };
+    fetchUser();
+  }, []);
 
   return (
     <Router>

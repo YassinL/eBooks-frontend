@@ -47,7 +47,7 @@ export default function NavBar() {
     return (
       <>
         <div className="mobile-navbar-icon">
-          <Link to="/books">
+          <Link to="/profile">
             <div className="mobile-navbar-icon-link">
               <ProfileIcon />
               <p>Profile</p>
@@ -55,12 +55,10 @@ export default function NavBar() {
           </Link>
         </div>
         <div className="mobile-navbar-icon">
-          <Link to="/books">
-            <div className="mobile-navbar-icon-link" onClick={logOut}>
-              <LogOutIcon />
-              <p>Déconnexion</p>
-            </div>
-          </Link>
+          <div className="mobile-navbar-icon-link" onClick={logOut}>
+            <LogOutIcon />
+            <p>Déconnexion</p>
+          </div>
         </div>
       </>
     );
@@ -103,8 +101,7 @@ export default function NavBar() {
             </div>
           </Link>
         </div>
-        <ModaleSignIn />
-        <ModaleSignUp />
+        <ProfilIsAuth />
       </div>{" "}
     </>
   );

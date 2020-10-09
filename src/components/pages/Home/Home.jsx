@@ -63,7 +63,9 @@ export default function Home() {
                   className="componant-categorie-slider-name"
                   style={{ transform: `translateX(${x}% )` }}
                 >
-                  <h2>{genre.name}</h2>
+                  <Link to={`/genre-livre/${genre.name}`}>
+                    <h2>{genre.name}</h2>
+                  </Link>
                 </div>
               );
             })}

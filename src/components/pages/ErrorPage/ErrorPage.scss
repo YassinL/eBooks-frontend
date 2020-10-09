@@ -1,0 +1,30 @@
+.error {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &-title {
+    & h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #5097ab;
+    }
+  }
+  &-link {
+    p {
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+  &-image {
+    margin: 5%;
+    height: 25vh;
+    width: 50vw;
+    & img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
