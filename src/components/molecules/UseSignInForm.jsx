@@ -26,7 +26,6 @@ export default function useSigninForm(callback) {
       setConnexion({
         ...connexion,
         isSubmitting: true,
-        errorMessage: null,
       });
       const result = await axios.post(
         `http://localhost:8085/api/signIn`,

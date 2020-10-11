@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import UserContext from "../../../contexts/UserContext";
 
 export default function Profile() {
-  const id = localStorage.getItem("user");
-  const email = localStorage.getItem("email");
-  const firstname = localStorage.getItem("firstname");
-  const lastname = localStorage.getItem("lastname");
+  const context = useContext(UserContext);
+
+  useEffect(() => {}, []);
+
+  console.log(context);
   return (
     <div>
-      <h2>{firstname}</h2>
-      <h2>{lastname}</h2>
+      <h2>{context.user.firstName}</h2>
+      <h2>{context.user.lastName}</h2>
     </div>
   );
 }

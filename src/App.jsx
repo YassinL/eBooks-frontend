@@ -8,14 +8,9 @@ import Footer from "./components/organisms/Footer/Footer";
 import AuthContext from "./contexts/AuthContext";
 import ContextRecherche from "./contexts/ContextRecherche";
 import AuthReducer from "./reducer/AuthReducer";
+import UserContext from "./contexts/UserContext";
 
 import "./App.scss";
-
-const initialState = {
-  isAuthenticated: false,
-  token: null,
-  user: null,
-};
 
 export default function App() {
   // barre de recherche
@@ -29,6 +24,7 @@ export default function App() {
     setAuthor,
   };
 
+  // authentification
   const [state, dispatch] = useReducer(
     AuthReducer.reducer,
     AuthReducer.initialState
@@ -38,18 +34,23 @@ export default function App() {
     dispatch,
   };
 
+  // context du user
+  const [user, setUser] = useState([]);
+  const userValue = {
+    user,
+    setUser,
+  };
+
   useEffect(() => {
-    console.log("tutu");
     const fetchUser = async () => {
       const token = localStorage.getItem("token");
-      console.log(token);
       if (token) {
         const result = await Axios(`http://localhost:8085/api/user/me`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(result.data);
+        setUser(result.data);
         dispatch({
           type: "LOAD_USER",
           payload: result.data,
@@ -62,12 +63,14 @@ export default function App() {
   return (
     <Router>
       <AuthContext.Provider value={authValue}>
-        <ContextRecherche.Provider value={contextValue}>
-          <Header />
-          <MobileNavBar />
-          <Routes />
-          <Footer />
-        </ContextRecherche.Provider>
+        <UserContext.Provider value={userValue}>
+          <ContextRecherche.Provider value={contextValue}>
+            <Header />
+            <MobileNavBar />
+            <Routes />
+            <Footer />
+          </ContextRecherche.Provider>
+        </UserContext.Provider>
       </AuthContext.Provider>
     </Router>
   );

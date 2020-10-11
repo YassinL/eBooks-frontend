@@ -3,9 +3,13 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Resizer from "react-image-file-resizer";
 import emptyImage from "../../../images/empty.png";
+import Add from "../../atoms/SVG/Add";
+import "./CreateBooks.scss";
 
 export default function CreateBook() {
   const history = useHistory();
+  const [booksImage, setBooksImage] = useState(null);
+  const [previewImages, setPreviewImages] = useState(emptyImage);
 
   const [books, setBooks] = useState({
     ISBN: "",
@@ -13,16 +17,17 @@ export default function CreateBook() {
     summary: "",
     author: "",
     publicationDate: "",
-    pagesNumber: "",
+    pagesNumber: parseInt(""),
     language: "",
+    genreLivreId: "",
     uploadPicture: "",
-    genreLivreId: parseInt("1"),
-    price: "",
+    price: parseInt(""),
+    isPosted: false,
+    errorMessage: null,
   });
 
-  const [previewImages, setPreviewImages] = useState(emptyImage);
-  console.log("previewImages", previewImages);
   const handleChange = (event) => {
+    // event.preventDefault();
     let { name, value } = event.target;
     setBooks({
       ...books,
@@ -32,7 +37,25 @@ export default function CreateBook() {
 
   const handleChangeFile = async (event) => {
     const [imageFile] = event.target.files;
-    setPreviewImages(URL.createObjectURL(imageFile));
+    try {
+      Resizer.imageFileResizer(
+        imageFile,
+        750,
+        1500,
+        "JPEG",
+        50,
+        0,
+        (compressedFile) => {
+          setBooksImage({ image: compressedFile });
+          setPreviewImages(URL.createObjectURL(compressedFile));
+        },
+        "blob",
+        750,
+        750
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const token = localStorage.getItem("token");
@@ -46,32 +69,59 @@ export default function CreateBook() {
       formData.append("author", books.author);
       formData.append("publicationDate", books.publicationDate);
       formData.append("pagesNumber", books.pagesNumber);
-      formData.append("uploadPicture", previewImages.uploadPicture);
+      formData.append("language", books.language);
       formData.append("genreLivreId", books.genreLivreId);
+      formData.append("image", booksImage.image);
       formData.append("price", books.price);
-
+      console.log(formData);
       const header = {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       };
-      await axios.post("http://localhost:8085/api/books", formData, header);
+      const result = await axios.post(
+        "http://localhost:8085/api/books",
+        formData,
+        header
+      );
       history.push("/create-books");
+
+      if (result.status === 201) {
+        console.log("livre posté", result.status);
+        setBooks({
+          ...books,
+          isPosted: true,
+          errorMessage: null,
+        });
+        history.push("/books");
+      }
     } catch (error) {
-      history.push("/error");
+      setBooks({
+        ...books,
+        isPosted: false,
+        errorMessage: error.response,
+      });
     }
   };
 
   return (
     <>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <img src={previewImages} alt="" />
-            <label htmlFor="file" className="preview_label">
+      <div className="createbooks">
+        <div className="createbooks-title">
+          <h1>Création d'annonce de livres</h1>
+        </div>
+        <form className="createbooks-form" onSubmit={handleSubmit}>
+          <div className="createbooks-form-preview">
+            <img
+              className="createbooks-form-preview-image"
+              src={previewImages}
+              alt="preview"
+            />
+            <label htmlFor="file" className="createbooks-form-preview-label">
+              <Add />
               <input
-                className="preview_input"
+                className="createbooks-form-preview-label-input"
                 type="file"
                 name="uploadPicture"
                 id="file"
@@ -80,24 +130,24 @@ export default function CreateBook() {
               />
             </label>
           </div>
-          <label htmlFor="idCategory">
+          <label htmlFor="genreLivreId">
             Genres
-            <select
+            <input
               name="genreLivreId"
-              value={books.genreLivreId}
               onChange={handleChange}
-            >
-              <option value="1">Roman</option>
-              <option value="2">Polar</option>
-            </select>
+              value={books.genreLivreId}
+              type="text"
+              placeholder="Genre Du livre"
+            />
           </label>
           <label htmlFor="ISBN">
             ISBN
             <input
               name="ISBN"
               onChange={handleChange}
-              value={books.name}
-              type="text"
+              value={books.ISBN}
+              type="number"
+              placeholder="Numéro ISBN"
             />
           </label>
           <label htmlFor="name">
@@ -105,17 +155,39 @@ export default function CreateBook() {
             <input
               name="title"
               onChange={handleChange}
-              value={books.name}
+              value={books.title}
               type="text"
+              placeholder="Titre"
             />
           </label>
-          <label htmlFor="description">
-            Description
-            <input
-              name="description"
+          <label htmlFor="summary">
+            Résumé
+            <textarea
+              name="summary"
               onChange={handleChange}
-              value={books.descripton}
+              value={books.summary}
               type="text"
+              placeholder="Résumé"
+            />
+          </label>
+          <label htmlFor="author">
+            Auteur
+            <input
+              name="author"
+              onChange={handleChange}
+              value={books.author}
+              type="text"
+              placeholder="Auteur"
+            />
+          </label>
+          <label htmlFor="language">
+            Langue
+            <input
+              name="language"
+              onChange={handleChange}
+              value={books.language}
+              type="text"
+              placeholder="Langue du livre"
             />
           </label>
           <label htmlFor="price">
@@ -125,9 +197,31 @@ export default function CreateBook() {
               onChange={handleChange}
               value={books.price}
               type="number"
+              placeholder="Prix"
+              min="0"
             />
           </label>
-          <button type="submit">Envoyer</button>
+          <label htmlFor="pagesNumber">
+            Nombre de Pages
+            <input
+              name="pagesNumber"
+              onChange={handleChange}
+              value={books.pagesNumber}
+              type="number"
+              placeholder="Nombre de pages"
+            />
+          </label>
+          <label htmlFor="publicationDate">
+            Date de Publication
+            <input
+              name="publicationDate"
+              onChange={handleChange}
+              value={books.publicationDate}
+              type="date"
+              placeholder="Date de publication"
+            />
+          </label>
+          <button type="submit">Ajouter le livre</button>
         </form>
       </div>
     </>

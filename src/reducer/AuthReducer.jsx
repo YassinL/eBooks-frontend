@@ -26,6 +26,7 @@ module.exports = {
         return {
           ...state,
           isAuthenticated: false,
+          user: null,
           token: null,
         };
       default:
