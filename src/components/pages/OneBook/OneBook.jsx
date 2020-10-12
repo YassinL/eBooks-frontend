@@ -1,6 +1,6 @@
 import Axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import ModaleAlert from "../../organisms/ModaleAlert/ModaleAlert";
 import OneBookContext from "../../../contexts/OneBookContext";
 
@@ -26,6 +26,9 @@ export default function OneBook() {
         <h2>{context.oneBook.title}</h2>
       </div>
       <ModaleAlert OneBook={context.oneBook} />
+      <button>
+        <Link to={`/update-books/${context.oneBook.title}`}> Modifier</Link>
+      </button>
     </div>
   );
 }

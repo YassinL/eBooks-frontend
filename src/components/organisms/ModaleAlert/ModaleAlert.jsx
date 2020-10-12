@@ -74,7 +74,7 @@ export default function ModaleAlert({ OneBook }) {
         type="button"
         onClick={handleOpen}
       >
-        Supprimer témoignage
+        Supprimer l'annonce du livre
       </button>
       <Modal
         aria-describedby="transition-modal-description"

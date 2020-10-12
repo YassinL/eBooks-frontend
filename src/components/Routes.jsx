@@ -6,6 +6,7 @@ import Books from "./pages/Books/Books";
 import OneBook from "./pages/OneBook/OneBook";
 import Profile from "./pages/Profile/Profile";
 import CreateBook from "./pages/CreateBooks/CreateBooks";
+import UpdateBook from "./pages/UpdateBook/UpdateBook";
 import GenreLivre from "./pages/GenreLivre/GenreLivre";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
@@ -17,6 +18,7 @@ export default function Routes() {
       <Route exact path="/books/:title" component={OneBook} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/create-books" component={CreateBook} />
+      <Route exact path="/update-books/:title" component={UpdateBook} />
       <Route exact path="/genre-livre/:name" component={GenreLivre} />
       <Route exact path="*" component={ErrorPage} />
     </Switch>
