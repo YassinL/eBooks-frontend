@@ -7,6 +7,4 @@ export default React.createContext({
   setAuthor: () => {},
   // genreLivreId: "",
   // SetGenreLivreId: () => {},
-  // recherche: "",
-  // setRecherche: () => {},
 });

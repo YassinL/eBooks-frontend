@@ -9,6 +9,8 @@ import AuthContext from "./contexts/AuthContext";
 import ContextRecherche from "./contexts/ContextRecherche";
 import AuthReducer from "./reducer/AuthReducer";
 import UserContext from "./contexts/UserContext";
+import BooksContext from "./contexts/BooksContext";
+import OneBookContext from "./contexts/OneBookContext";
 
 import "./App.scss";
 
@@ -24,6 +26,17 @@ export default function App() {
     setAuthor,
   };
 
+  const [books, setBooks] = useState([]);
+  const booksValue = {
+    books,
+    setBooks,
+  };
+
+  const [oneBook, setOneBook] = useState([]);
+  const oneBookValue = {
+    oneBook,
+    setOneBook,
+  };
   // authentification
   const [state, dispatch] = useReducer(
     AuthReducer.reducer,
@@ -65,10 +78,14 @@ export default function App() {
       <AuthContext.Provider value={authValue}>
         <UserContext.Provider value={userValue}>
           <ContextRecherche.Provider value={contextValue}>
-            <Header />
-            <MobileNavBar />
-            <Routes />
-            <Footer />
+            <BooksContext.Provider value={booksValue}>
+              <OneBookContext.Provider value={oneBookValue}>
+                <Header />
+                <MobileNavBar />
+                <Routes />
+                <Footer />
+              </OneBookContext.Provider>
+            </BooksContext.Provider>
           </ContextRecherche.Provider>
         </UserContext.Provider>
       </AuthContext.Provider>

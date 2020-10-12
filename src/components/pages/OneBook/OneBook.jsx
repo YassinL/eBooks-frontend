@@ -1,27 +1,31 @@
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ModaleAlert from "../../organisms/ModaleAlert/ModaleAlert";
+import OneBookContext from "../../../contexts/OneBookContext";
 
 export default function OneBook() {
-  const [OneBook, setOneBook] = useState([]);
+  const context = useContext(OneBookContext);
   const { title } = useParams();
-  console.log(title);
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await Axios(`http://localhost:8085/api/books/${title}`);
-      setOneBook(result.data);
+      context.setOneBook(result.data);
     };
 
     fetchData();
   }, [title]);
+
   return (
     <div>
       <div>
-        <img src={OneBook.uploadPicture} alt="" />
+        <img src={context.oneBook.uploadPicture} alt="" />
       </div>
       <div>
-        <h2>{OneBook.title}</h2>
+        <h2>{context.oneBook.title}</h2>
       </div>
+      <ModaleAlert OneBook={context.oneBook} />
     </div>
   );
 }
