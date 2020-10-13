@@ -86,15 +86,8 @@ export default function UpdateBook() {
         formData,
         header
       );
-      if (result.status === 201) {
-        console.log("livre posté", result.status);
-        setBooks({
-          ...books,
-          isPosted: true,
-          errorMessage: null,
-        });
-        history.push(`/books/${result.data.title}`);
-      }
+      console.log("PUT", result.data);
+      history.push(`/books/${result.data.updateBooks.title}`);
     } catch (error) {
       setBooks({
         ...books,
@@ -103,6 +96,23 @@ export default function UpdateBook() {
       });
     }
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios(
+          // eslint-disable-next-line camelcase
+          `http://localhost:8085/api/books/${title}`
+        );
+        setBooks(result.data);
+        setPreviewImages(result.data.uploadPicture);
+      } catch (error) {
+        history.push("/error");
+      }
+    };
+    fetchData();
+    // eslint-disable-next-line camelcase
+  }, [history]);
 
   return (
     <>
