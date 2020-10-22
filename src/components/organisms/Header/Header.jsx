@@ -13,9 +13,7 @@ export default function Header() {
   };
   return (
     <>
-      <div className="header">
-        <SearchMobile search={search} />
-      </div>
+      <div className="header">{/* <SearchMobile search={search} /> */}</div>
     </>
   );
 }

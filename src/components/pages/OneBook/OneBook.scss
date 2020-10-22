@@ -1,0 +1,87 @@
+@import "../../_settings/variables";
+@font-face {
+  font-family: "homeFontBold";
+  src: local("homeFontBold"),
+    url(../../../assets/static/Quicksand-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "homeFontSemiBold";
+  src: local("homeFontSemiBold"),
+    url(../../../assets/static/Quicksand-SemiBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "homeFont";
+  src: local("homeFont"),
+    url(../../../assets/static/Quicksand-Regular.ttf) format("truetype");
+}
+
+.div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $off-white;
+  &-oneBook {
+    padding: 10% 5% 5% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    &-description {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 5%;
+      &-picture {
+        width: 45vw;
+        height: 30vh;
+        & img {
+          height: auto;
+          width: 100%;
+        }
+      }
+      &-price {
+        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 25vh;
+
+        & h3 {
+          font-size: 2rem;
+          font-family: "homeFontBold";
+        }
+      }
+    }
+    &-firstDescription {
+      padding: 2% 0;
+      width: 100%;
+
+      & h2 {
+        font-family: "homeFontBold";
+      }
+      & h3 {
+        padding-bottom: 1%;
+        font-family: "homeFontSemiBold";
+      }
+      & p {
+        font-size: 1.4rem;
+        line-height: 1.3em;
+      }
+    }
+    &-secondeDescription {
+      padding-top: 2%;
+      width: 100%;
+      &-details {
+        display: flex;
+        flex-direction: row;
+        & h4 {
+          font-family: "homeFontSemiBold";
+          padding: 1%;
+          & span {
+            font-family: "homeFont";
+          }
+        }
+      }
+    }
+  }
+}

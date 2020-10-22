@@ -1,56 +1,61 @@
 @import "../../_settings/variables";
+@font-face {
+  font-family: "homeFontBold";
+  src: local("homeFontBold"),
+    url(../../../assets/static/Quicksand-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "homeFontSemiBold";
+  src: local("homeFontSemiBold"),
+    url(../../../assets/static/Quicksand-SemiBold.ttf) format("truetype");
+}
 
 .componant {
   background-color: #5097ab;
   &-home {
-    overflow-y: scroll;
     background-size: cover;
     height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
-    text-align: center;
+    justify-content: flex-end;
     &-citation {
+      background-color: rgba(0, 0, 0, 0.3);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      height: 80%;
+      text-align: center;
+      height: 20%;
+      width: 80%;
       padding: 2%;
       & h2 {
+        font-size: 1.3rem;
         padding: 2%;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: "homeFontSemiBold";
         color: $off-white;
         font-weight: 600;
       }
     }
     &-button {
-      padding: 8% 0;
-      & button {
-        font-weight: 500;
-        padding: 2%;
-        border-radius: 7px;
-        border: none;
-        background-color: $white;
-        color: $black-nice;
-        &:hover {
-          background-color: #5097ab;
-          color: $white;
-        }
-      }
-    }
-    &-image {
-      border-radius: 10px;
-      background-color: $off-white;
-      height: 40vh;
-      width: 90vw;
       display: flex;
-      align-items: center;
       justify-content: center;
-      & img {
-        border-radius: 10px;
-        height: 95%;
-        width: 95%;
+      width: 50%;
+      padding: 8% 0;
+      &-link {
+        width: 100%;
+        & button {
+          width: 100%;
+          cursor: pointer;
+          font-family: "homeFontSemiBold";
+          padding: 2%;
+          border: none;
+          background-color: $white;
+          color: $black-nice;
+          &:hover {
+            background-color: #5097ab;
+            color: $white;
+          }
+        }
       }
     }
   }
@@ -59,6 +64,7 @@
     &-title {
       text-align: center;
       padding: 10% 0;
+      color: $off-white;
     }
     &-slider {
       position: relative;
@@ -83,7 +89,7 @@
         }
       }
       &-left {
-        background: none;
+        background: rgba(0, 0, 0, 0.1);
         position: absolute;
         transform: translateY();
         width: 8%;
@@ -97,7 +103,7 @@
         }
       }
       &-right {
-        background: none;
+        background: rgba(0, 0, 0, 0.1);
         position: absolute;
         transform: translateY();
         width: 8%;
@@ -117,10 +123,11 @@
     }
   }
   &-livrepopulaire {
-    padding: 2% 0;
+    padding: 5% 0;
     &-title {
       text-align: center;
-      padding: 10% 0;
+      padding: 8% 0;
+      color: $off-white;
     }
     &-sliderbooks {
       position: relative;
@@ -169,7 +176,7 @@
         }
       }
       &-leftbooks {
-        background: none;
+        background: rgba(0, 0, 0, 0.2);
         position: absolute;
         transform: translateY();
         width: 8%;
@@ -183,7 +190,7 @@
         }
       }
       &-rightbooks {
-        background: none;
+        background: rgba(0, 0, 0, 0.2);
         position: absolute;
         transform: translateY();
         width: 8%;
@@ -193,13 +200,38 @@
         outline: none;
         transition: 0.5s;
         &:hover {
-          background: rgba(0, 0, 0, 0.3);
+          background: rgba(0, 0, 0, 0.4);
         }
       }
       & svg {
+        color: $white;
         height: auto;
         width: 100%;
       }
+    }
+  }
+  &-presentation {
+    padding: 5% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &-title {
+      padding: 5% 0;
+      text-align: center;
+      color: $off-white;
+    }
+    &-paragraphe {
+      color: $off-white;
+      padding: 3%;
+      height: 20vh;
+      overflow-y: scroll;
+      text-align: justify;
+      line-height: 1.4;
+      width: 90%;
+      background: rgba(0, 0, 0, 0.151);
+      border-radius: 5px;
+      font-family: "homeFontSemiBold";
     }
   }
 }

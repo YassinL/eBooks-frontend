@@ -1,4 +1,38 @@
 .footer {
-  height: 20vh;
+  padding-bottom: 20%;
   background-color: #313234;
+  &-componant {
+    &-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &-contact {
+        padding: 2%;
+        color: white;
+      }
+    }
+    &-sociaux {
+      padding: 4%;
+      display: flex;
+      &-instagram {
+        height: 3vh;
+      }
+      &-facebook {
+        height: 3vh;
+      }
+      &-linkedin {
+        height: 3vh;
+      }
+      & svg {
+        height: 100%;
+        width: auto;
+      }
+    }
+    &-copyright {
+      text-align: center;
+      & h5 {
+        color: white;
+      }
+    }
+  }
 }

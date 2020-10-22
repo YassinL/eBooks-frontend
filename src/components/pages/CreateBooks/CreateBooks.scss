@@ -1,10 +1,9 @@
 @import "../../_settings/variables";
 
 .createbooks {
-  margin-top: 10vh;
   display: flex;
   flex-direction: column;
-  background-color: #5097ab;
+  background-color: $off-white;
   &-title {
     & h1 {
       padding: 2%;
@@ -58,10 +57,11 @@
       }
     }
     & label {
+      line-height: 2;
       display: flex;
       flex-direction: column;
       font-size: 1.4rem;
-      padding: 2% 0;
+      padding: 1% 0;
       & input {
         border: none;
         padding: 2%;
@@ -84,7 +84,8 @@
       padding: 2%;
       margin: 3%;
       color: $black;
-      background-color: $off-white;
+      background-color: #5097ab;
+      color: $white;
       &:hover {
         background-color: #313234;
         color: $white;

@@ -9,8 +9,8 @@ import "../CreateBooks/CreateBooks.scss";
 export default function UpdateBook() {
   const history = useHistory();
   const { title } = useParams();
-  const [booksImage, setBooksImage] = useState(null);
-  const [previewImages, setPreviewImages] = useState(emptyImage);
+  const [booksImage, setBooksImage] = useState("");
+  const [previewImages, setPreviewImages] = useState(null);
 
   const [books, setBooks] = useState({
     ISBN: "",
@@ -26,6 +26,23 @@ export default function UpdateBook() {
     isPosted: false,
     errorMessage: null,
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios(
+          // eslint-disable-next-line camelcase
+          `http://localhost:8085/api/books/${title}`
+        );
+        setBooks(result.data);
+        setPreviewImages(result.data.uploadPicture);
+      } catch (error) {
+        history.push("/error");
+      }
+    };
+    fetchData();
+    // eslint-disable-next-line camelcase
+  }, [history]);
 
   const handleChange = (event) => {
     // event.preventDefault();
@@ -96,23 +113,6 @@ export default function UpdateBook() {
       });
     }
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios(
-          // eslint-disable-next-line camelcase
-          `http://localhost:8085/api/books/${title}`
-        );
-        setBooks(result.data);
-        setPreviewImages(result.data.uploadPicture);
-      } catch (error) {
-        history.push("/error");
-      }
-    };
-    fetchData();
-    // eslint-disable-next-line camelcase
-  }, [history]);
 
   return (
     <>

@@ -16,14 +16,16 @@ import "./App.scss";
 
 export default function App() {
   // barre de recherche
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  // const [genreLivreId, setGenreLivreId] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [author, setAuthor] = useState("");
+  const [searchForm, setSearchForm] = useState("");
   const contextValue = {
-    title,
-    setTitle,
-    author,
-    setAuthor,
+    // title,
+    // setTitle,
+    // author,
+    // setAuthor,
+    searchForm,
+    setSearchForm,
   };
 
   const [books, setBooks] = useState([]);

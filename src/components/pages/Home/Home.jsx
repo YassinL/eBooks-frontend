@@ -15,7 +15,7 @@ const style = {
 export default function Home() {
   const [genres, setGenres] = useState([]);
   const [books, setBooks] = useState([]);
-
+  const [randomError, setRandomError] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       const result = await Axios(`http://localhost:8085/api/genre`);
@@ -27,10 +27,14 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await Axios(`http://localhost:8085/api/random-books`);
-      console.log(result);
+      try {
+        const result = await Axios(`http://localhost:8085/api/random-books`);
+        console.log(result);
 
-      setBooks(result.data);
+        setBooks(result.data);
+      } catch (error) {
+        setRandomError(error.response.data);
+      }
     };
 
     fetchData();
@@ -64,15 +68,12 @@ export default function Home() {
               "La lecture nous offre un endroit où aller lorsque nous devons
               rester où nous sommes"
             </h2>
-            <div className="componant-home-button">
-              <Link to="/books">
-                <button type="button">Explorer la bibliothèque</button>
-              </Link>
-            </div>
           </div>
-          {/* <div className="componant-home-image">
-            <img src={image} alt="" />
-          </div> */}
+          <div className="componant-home-button">
+            <Link className="componant-home-button-link" to="/books">
+              <button type="button">Explorer la Bibliothèque</button>
+            </Link>
+          </div>
         </section>
         <section className="componant-categorie">
           <h1 className="componant-categorie-title">Catégories</h1>
@@ -109,6 +110,12 @@ export default function Home() {
         <section className="componant-livrepopulaire">
           <h1 className="componant-livrepopulaire-title">Livres Populaires</h1>
           <div className="componant-livrepopulaire-sliderbooks">
+            {randomError !== "" ? (
+              <div>
+                <span>{randomError.title}</span>
+                <span>{randomError.description}</span>
+              </div>
+            ) : null}
             {books.map((book, index) => {
               return (
                 <div
@@ -142,6 +149,27 @@ export default function Home() {
             >
               <RightArrow />
             </button>
+          </div>
+        </section>
+        <section className="componant-presentation">
+          <div className="componant-presentation-title">
+            <h1>Présentation du site</h1>
+          </div>
+          <div className="componant-presentation-paragraphe">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              provident, corrupti id impedit quaerat et. Distinctio labore magni
+              officia sapiente voluptas illo non cum inventore, dolorum aut
+              dolore voluptates nesciunt suscipit velit consectetur! Voluptatem
+              minus, ipsam repellat veniam, eveniet eius perferendis beatae vel
+              nemo facere tempore impedit harum sunt excepturi. Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Libero rerum
+              deleniti, mollitia ullam obcaecati totam veritatis fugit expedita
+              iste corporis? Laudantium voluptatum, alias excepturi dignissimos
+              harum ex. Perferendis, quisquam ab amet suscipit repellat eius
+              dolores ex labore, veniam mollitia vitae. Amet iure dignissimos
+              vel aliquid voluptates perspiciatis. Cumque, quaerat ab.
+            </p>
           </div>
         </section>
       </div>

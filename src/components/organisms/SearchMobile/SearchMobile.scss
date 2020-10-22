@@ -1,7 +1,7 @@
 @import "../../_settings/variables";
 
 .searchMobile {
-  height: 15vh;
+  height: 10vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -10,14 +10,14 @@
     display: flex;
     justify-content: center;
     background-color: $off-white;
-    border-radius: 25px;
-    height: 10vh;
     width: 80%;
     &-label {
       width: 100%;
+      display: flex;
+      align-items: center;
       &-input {
-        height: 40%;
-        padding: 2%;
+        height: 100%;
+        padding: 3%;
         border: none;
         background-color: transparent;
         &::placeholder {

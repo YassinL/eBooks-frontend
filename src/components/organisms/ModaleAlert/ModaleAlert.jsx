@@ -93,7 +93,7 @@ export default function ModaleAlert({ OneBook }) {
               <p>X</p>
             </div>
             <p id="transition-modal-description">
-              Êtes-vous sûr de supprimer ce témoignage ?
+              Êtes-vous sûr de supprimer ce Livre ?
             </p>
             <button
               className={classes.button}

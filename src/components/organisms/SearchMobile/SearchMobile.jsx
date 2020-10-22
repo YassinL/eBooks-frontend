@@ -9,13 +9,14 @@ const SearchMobile = (props) => {
     author: "",
   });
 
-  function handleChange(evt) {
-    const value = evt.target.value;
+  const handleChange = (event) => {
+    const value = event.target.value;
     setSearchForm({
       ...searchForm,
-      [evt.target.name]: value,
+      [event.target.name]: value,
     });
-  }
+  };
+
   const resetInputField = () => {
     setSearchForm({
       title: "",

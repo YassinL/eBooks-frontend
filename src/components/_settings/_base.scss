@@ -1,21 +1,40 @@
 @import "./variables";
 @import "./mixins";
 
+@font-face {
+  font-family: "homeFont";
+  src: local("homeFont"),
+    url(../../assets/static/Quicksand-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "homeFontBold";
+  src: local("homeFontBold"),
+    url(../../assets/static/Quicksand-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "homeFontSemiBold";
+  src: local("homeFontSemiBold"),
+    url(../../assets/static/Quicksand-SemiBold.ttf) format("truetype");
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "homeFont", Helvetica, sans-serif;
   font-size: 1.2rem;
 }
 
 h1 {
+  font-family: "homeFontBold";
   font-size: 2.4rem;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
 }
 
 h3 {
@@ -23,9 +42,13 @@ h3 {
 }
 
 h4 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 h5 {
   font-size: 1rem;
+}
+
+p {
+  font-size: 1.3rem;
 }

@@ -109,7 +109,7 @@ export default function CreateBook() {
     <>
       <div className="createbooks">
         <div className="createbooks-title">
-          <h1>Création d'annonce de livres</h1>
+          <h1>Création de livre</h1>
         </div>
         <form className="createbooks-form" onSubmit={handleSubmit}>
           <div className="createbooks-form-preview">
