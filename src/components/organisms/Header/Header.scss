@@ -1,10 +1,13 @@
 @import "../../_settings/variables";
 
 .header {
-  position: fixed;
+  margin: 3%;
+  position: absolute;
   top: 0;
-  background-color: transparent;
-  height: 10vh;
-  display: flex;
-  align-items: center;
+  height: 5vh;
+  width: 10vw;
+  &-logo {
+    height: 100%;
+    width: 100%;
+  }
 }

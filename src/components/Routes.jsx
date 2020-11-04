@@ -16,7 +16,7 @@ export default function Routes() {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/books" component={Books} />
-      <Route exact path="/books/:title" component={OneBook} />
+      <Route exact path="/books/:urlTitle" component={OneBook} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/create-books" component={CreateBook} />
       <Route exact path="/update-books/:title" component={UpdateBook} />

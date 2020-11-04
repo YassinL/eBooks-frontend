@@ -44,6 +44,15 @@ export default function GenreLivre() {
       <div className="categorie">
         <h1 className="categorie-title">Catégorie : {name}</h1>
       </div>
+      <div className="product-error">
+        {genreError !== "" ? (
+          <div className="span">
+            <span className="span-error">
+              {genreError.title}, {genreError.description}
+            </span>
+          </div>
+        ) : null}
+      </div>
       <div className="books">
         {booksfilter.map((genreBook, i) => {
           return (
@@ -60,18 +69,6 @@ export default function GenreLivre() {
             </div>
           );
         })}
-      </div>
-      <div className="product-error">
-        {genreError !== "" ? (
-          <div className="product-error-spanAll">
-            <span className="product-error-spanAll-span">
-              {genreError.title}
-            </span>
-            <span className="product-error-spanAll-span">
-              {genreError.description}
-            </span>
-          </div>
-        ) : null}
       </div>
     </>
   );

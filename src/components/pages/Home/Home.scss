@@ -1,4 +1,6 @@
 @import "../../_settings/variables";
+@import "../../_settings/mixins";
+
 @font-face {
   font-family: "homeFontBold";
   src: local("homeFontBold"),
@@ -20,6 +22,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    @include media(laptop) {
+      height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      padding-left: 5%;
+    }
     &-citation {
       background-color: rgba(0, 0, 0, 0.3);
       display: flex;
@@ -28,12 +36,18 @@
       height: 20%;
       width: 80%;
       padding: 2%;
+      @include media(laptop) {
+        width: 40%;
+      }
       & h2 {
         font-size: 1.3rem;
         padding: 2%;
         font-family: "homeFontSemiBold";
         color: $off-white;
         font-weight: 600;
+        @include media(laptop) {
+          font-size: 1.7rem;
+        }
       }
     }
     &-button {
@@ -41,6 +55,10 @@
       justify-content: center;
       width: 50%;
       padding: 8% 0;
+      @include media(laptop) {
+        padding: 2% 0 8% 0;
+        width: 20%;
+      }
       &-link {
         width: 100%;
         & button {
@@ -81,7 +99,7 @@
         height: 100%;
         padding: 2%;
         border-right: 1px solid $black-nice;
-        min-width: 34%;
+        min-width: 32%;
         transition: 0.5s;
         & h2 {
           font-size: 14px;

@@ -11,16 +11,16 @@ import "./OneBook.scss";
 
 export default function OneBook() {
   const context = useContext(OneBookContext);
-  const { title } = useParams();
+  const { urlTitle } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await Axios(`http://localhost:8085/api/books/${title}`);
+      const result = await Axios(`http://localhost:8085/api/books/${urlTitle}`);
       context.setOneBook(result.data);
     };
 
     fetchData();
-  }, [title]);
+  }, [urlTitle]);
 
   const { state, dispatch } = useContext(AuthContext);
   useEffect(() => {

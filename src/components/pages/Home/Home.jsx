@@ -111,9 +111,10 @@ export default function Home() {
           <h1 className="componant-livrepopulaire-title">Livres Populaires</h1>
           <div className="componant-livrepopulaire-sliderbooks">
             {randomError !== "" ? (
-              <div>
-                <span>{randomError.title}</span>
-                <span>{randomError.description}</span>
+              <div className="span">
+                <span className="span-error">
+                  {randomError.title}, {randomError.description}
+                </span>
               </div>
             ) : null}
             {books.map((book, index) => {
@@ -123,7 +124,7 @@ export default function Home() {
                   key={index}
                   style={{ transform: `translateX(${o}% )` }}
                 >
-                  <Link to={`/books/${book.title}`}>
+                  <Link to={`/books/${book.urlTitle}`}>
                     <div className="componant-livrepopulaire-sliderbooks-fiche-photo">
                       <img src={book.uploadPicture} alt="" />
                     </div>

@@ -37,12 +37,17 @@ export default function Books() {
     fetchData();
   }, []);
 
+  // const urlTitle = (title) => {
+  //   const test = title.replace(/ /g, "-");
+  //   return test;
+  // };
+
   const [searchForm, setSearchForm] = useState("");
 
   const booksfilter = useMemo(() => {
     if (!searchForm) return books;
     return books.filter((book) => {
-      console.log(book.author);
+      console.log(book);
       return (
         book.author.toLowerCase().includes(searchForm.toLowerCase()) ||
         book.title.toLowerCase().includes(searchForm.toLowerCase())
@@ -52,18 +57,19 @@ export default function Books() {
 
   return (
     <>
+      <SearchForm value={searchForm} onChange={setSearchForm} />
       {booksError !== "" ? (
-        <div>
-          <span>{booksError.title}</span>
-          <span>{booksError.description}</span>
+        <div className="span">
+          <span className="span-error">
+            {booksError.title}, {booksError.description}
+          </span>
         </div>
       ) : null}
-      <SearchForm value={searchForm} onChange={setSearchForm} />
       <div className="books">
         {booksfilter.map((book, i) => {
           return (
             <div className="books-fiche" key={i}>
-              <Link to={`/books/${book.title}`}>
+              <Link to={`/books/${book.urlTitle}`}>
                 <div className="books-fiche-photo">
                   <img src={book.uploadPicture} alt="" />
                 </div>

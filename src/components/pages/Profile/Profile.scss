@@ -1,0 +1,80 @@
+@import "../../_settings/variables";
+@font-face {
+  font-family: "homeFontBold";
+  src: local("homeFontBold"),
+    url(../../../assets/static/Quicksand-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "homeFontSemiBold";
+  src: local("homeFontSemiBold"),
+    url(../../../assets/static/Quicksand-SemiBold.ttf) format("truetype");
+}
+
+.profile {
+  background-color: $off-white;
+  height: 100vh;
+  overflow-y: scroll;
+  &-header {
+    height: 35vh;
+    &-photo {
+      height: 17vh;
+    }
+    &-initiale {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90px;
+      width: 90px;
+      position: absolute;
+      top: 16%; /* position the top  edge of the element at the middle of the parent */
+      left: 50%; /* position the left edge of the element at the middle of the parent */
+
+      transform: translate(-50%, -50%);
+      // padding: 5%;
+      background-color: #313234;
+      border: 3px solid #e4e4e4;
+      border-radius: 50%;
+      & h1 {
+        color: $off-white;
+      }
+    }
+    &-name {
+      padding-bottom: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 20vh;
+      border-bottom: 5px solid #e4e4e4;
+      &-bonjour {
+      }
+      &-firstName {
+        font-family: "homeFontBold";
+      }
+    }
+    &-details {
+      height: 10vh;
+      display: flex;
+      align-items: center;
+      &-logo {
+        height: 5vh;
+        margin: 0 6%;
+      }
+      & svg {
+        height: 100%;
+        width: auto;
+      }
+      &-title {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-bottom: 1px solid #e4e4e4;
+        & h3 {
+          font-family: "homeFontSemiBold";
+        }
+      }
+    }
+  }
+}

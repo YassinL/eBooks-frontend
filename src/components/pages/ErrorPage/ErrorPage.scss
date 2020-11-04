@@ -5,6 +5,9 @@
   align-items: center;
   flex-direction: column;
   &-title {
+    display: flex;
+    flex-direction: column;
+    padding: 4%;
     & h1 {
       font-size: 3rem;
       font-weight: bold;

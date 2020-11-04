@@ -100,7 +100,7 @@ export default function CreateBook() {
       setBooks({
         ...books,
         isPosted: false,
-        errorMessage: error.response,
+        errorMessage: error.response.data.description,
       });
     }
   };
@@ -221,6 +221,7 @@ export default function CreateBook() {
               placeholder="Date de publication"
             />
           </label>
+          <span>{books.errorMessage}</span>
           <button type="submit">Ajouter le livre</button>
         </form>
       </div>

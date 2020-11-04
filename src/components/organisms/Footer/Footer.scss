@@ -14,14 +14,18 @@
     &-sociaux {
       padding: 4%;
       display: flex;
+      justify-content: center;
       &-instagram {
         height: 3vh;
+        padding: 0 1%;
       }
       &-facebook {
         height: 3vh;
+        padding: 0 1%;
       }
       &-linkedin {
         height: 3vh;
+        padding: 0 1%;
       }
       & svg {
         height: 100%;

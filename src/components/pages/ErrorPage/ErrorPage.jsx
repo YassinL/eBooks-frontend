@@ -11,7 +11,7 @@ export default function ErrorPage() {
       </div>
       <div className="error-title">
         <h1>ERROR 404</h1>
-        <h2>La page que vous recherchez semble introuvable</h2>
+        <h3>La page que vous recherchez semble introuvable</h3>
       </div>
       <div className="error-link">
         <Link to="/">

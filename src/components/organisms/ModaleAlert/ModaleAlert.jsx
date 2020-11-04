@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     border: "none",
     marginTop: 25,
-    backgroundColor: "#7C18FB",
+    backgroundColor: "#5097ab",
     color: "#FCFCFC",
     padding: 10,
   },
@@ -55,11 +55,14 @@ export default function ModaleAlert({ OneBook }) {
     try {
       event.preventDefault();
 
-      await axios.delete(`http://localhost:8085/api/books/${OneBook.title}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.delete(
+        `http://localhost:8085/api/books/${OneBook.urlTitle}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       handleClose();
       history.push("/books");
     } catch (error) {

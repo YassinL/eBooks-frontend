@@ -52,3 +52,16 @@ h5 {
 p {
   font-size: 1.3rem;
 }
+
+.span {
+  font-size: 1.3rem;
+  font-family: "homeFontSemiBold";
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-error {
+    color: red;
+    font-weight: bold;
+  }
+}
