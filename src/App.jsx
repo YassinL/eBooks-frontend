@@ -9,9 +9,8 @@ import AuthContext from "./contexts/AuthContext";
 import ContextRecherche from "./contexts/ContextRecherche";
 import AuthReducer from "./reducer/AuthReducer";
 import UserContext from "./contexts/UserContext";
-import BooksContext from "./contexts/BooksContext";
 import OneBookContext from "./contexts/OneBookContext";
-
+import NavBarResponsive from "./components/molecules/NavBarResponsive";
 import "./App.scss";
 
 export default function App() {
@@ -26,12 +25,6 @@ export default function App() {
     // setAuthor,
     searchForm,
     setSearchForm,
-  };
-
-  const [books, setBooks] = useState([]);
-  const booksValue = {
-    books,
-    setBooks,
   };
 
   const [oneBook, setOneBook] = useState([]);
@@ -80,14 +73,12 @@ export default function App() {
       <AuthContext.Provider value={authValue}>
         <UserContext.Provider value={userValue}>
           <ContextRecherche.Provider value={contextValue}>
-            <BooksContext.Provider value={booksValue}>
-              <OneBookContext.Provider value={oneBookValue}>
-                <Header />
-                <MobileNavBar />
-                <Routes />
-                <Footer />
-              </OneBookContext.Provider>
-            </BooksContext.Provider>
+            <OneBookContext.Provider value={oneBookValue}>
+              <Header />
+              <NavBarResponsive />
+              <Routes />
+              <Footer />
+            </OneBookContext.Provider>
           </ContextRecherche.Provider>
         </UserContext.Provider>
       </AuthContext.Provider>

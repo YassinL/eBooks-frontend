@@ -1,4 +1,11 @@
 @import "../../_settings/variables";
+@import "../../_settings/mixins";
+
+@font-face {
+  font-family: "homeFontBold";
+  src: local("homeFontBold"),
+    url(../../../assets/static/Quicksand-Bold.ttf) format("truetype");
+}
 
 .mobile-navbar {
   display: flex;
@@ -13,6 +20,12 @@
   bottom: 0;
   &-icon {
     height: 5vh;
+    @include media(laptop) {
+      height: 10vh;
+      color: $off-white;
+      font-size: 1.6rem;
+      font-family: "homeFontBold";
+    }
     &-link {
       display: flex;
       align-items: center;
@@ -20,6 +33,7 @@
       justify-content: center;
       height: 100%;
       width: 100%;
+      cursor: pointer;
     }
     svg {
       color: #5097ab;

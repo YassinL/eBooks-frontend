@@ -1,4 +1,5 @@
 @import "../../_settings/variables";
+@import "../../_settings/mixins";
 
 .header {
   margin: 3%;
@@ -6,6 +7,10 @@
   top: 0;
   height: 5vh;
   width: 10vw;
+  @include media(laptop) {
+    height: 10vh;
+    width: 5vw;
+  }
   &-logo {
     height: 100%;
     width: 100%;

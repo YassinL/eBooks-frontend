@@ -1,0 +1,29 @@
+@import "../../_settings/variables";
+@font-face {
+  font-family: "homeFontSemiBold";
+  src: local("homeFontSemiBold"),
+    url(../../../assets/static/Quicksand-SemiBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "homeFontBold";
+  src: local("homeFontBold"),
+    url(../../../assets/static/Quicksand-Bold.ttf) format("truetype");
+}
+
+.desktop-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  &-icon {
+    padding: 2%;
+    & h3 {
+      color: $off-white;
+      font-family: "homeFontBold";
+    }
+  }
+}

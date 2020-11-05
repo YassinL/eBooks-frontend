@@ -3,6 +3,7 @@ import "./Header.scss";
 // import SearchMobile from "../SearchMobile/SearchMobile";
 // import ContextRecherche from "../../../contexts/ContextRecherche";
 import Logo from "../../../images/EBLogo.png";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   // const context = useContext(ContextRecherche);
@@ -16,7 +17,9 @@ export default function Header() {
     <>
       <div className="header">
         {/* <SearchMobile search={search} /> */}
-        <img className="header-logo" src={Logo} alt="" />
+        <Link to="/">
+          <img className="header-logo" src={Logo} alt="" />
+        </Link>
       </div>
     </>
   );

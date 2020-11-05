@@ -1,6 +1,10 @@
 @import "../../_settings/variables";
+@import "../../_settings/mixins";
 
 .modale {
+  @include media(laptop) {
+    padding: 2%;
+  }
   & button {
     background-color: $off-white;
     cursor: pointer;
@@ -11,5 +15,8 @@
   & svg {
     height: 100%;
     width: auto;
+    @include media(laptop) {
+      display: none;
+    }
   }
 }
