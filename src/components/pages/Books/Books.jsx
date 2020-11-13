@@ -1,8 +1,6 @@
 import Axios from "axios";
-import React, { useContext, useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import ContextRecherche from "../../../contexts/ContextRecherche";
-// import BooksContext from "../../../contexts/BooksContext";
 import SearchForm from "../../organisms/SearchMobile/Search";
 import "./Books.scss";
 
@@ -16,21 +14,11 @@ export default function Books() {
     const fetchData = async () => {
       try {
         let url = `http://localhost:8085/api/books?`;
-
-        // if (context.title && context.author) {
-        //   url = `${url}title=${context.title}&author=${context.author}`;
-        // } else if (context.title) {
-        //   url = `${url}title=${context.title}`;
-        // } else if (context.author) {
-        //   url = `${url}author=${context.author}`;
-        // }
-
         const result = await Axios(`${url}`);
 
         setBooks(result.data);
       } catch (error) {
         setBooksError(error.response.data);
-        console.log("error", error.response);
       }
     };
 

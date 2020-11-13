@@ -7,7 +7,7 @@ import "./DesktopNavBar.scss";
 
 export default function DesktopNavBar() {
   const { state, dispatch } = useContext(AuthContext);
-
+  console.log("state navbar", state);
   useEffect(() => {
     return () => {};
   }, [state]);

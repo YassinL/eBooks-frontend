@@ -4,6 +4,8 @@ import "./Profile.scss";
 import Box from "../../atoms/SVG/Box";
 import Info from "../../atoms/SVG/Info";
 import Card from "../../atoms/SVG/Card";
+import AuthContext from "../../../contexts/AuthContext";
+import { Link } from "react-router-dom";
 // import UserContext from "../../../contexts/UserContext";
 
 const style = {
@@ -30,7 +32,10 @@ export default function Profile() {
     fetchUser();
   }, []);
 
-  console.log(user.firstName);
+  const { state } = useContext(AuthContext);
+  // useEffect(() => {
+  //   return () => {};
+  // }, [state]);
 
   return (
     <div className="profile">
@@ -77,6 +82,24 @@ export default function Profile() {
             <h3>Modes de paiements</h3>
           </div>
         </div>
+        {state.roleAdmin === true ? (
+          <div className="profile-header-create">
+            <div className="profile-header-create-title">
+              <h2>Partie Administrateur</h2>
+            </div>
+            <div className="profile-header-create-books">
+              <button className="profile-header-create-books-button">
+                <Link
+                  className="profile-header-create-button-books-link"
+                  to={`/create-books`}
+                >
+                  {" "}
+                  Créer une annonce de livre
+                </Link>
+              </button>
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );

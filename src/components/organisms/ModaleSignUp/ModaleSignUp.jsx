@@ -55,7 +55,7 @@ export default function ModaleSignup() {
   const handleClose = () => {
     setOpen(false);
   };
-  console.log(data);
+
   return (
     <div className="modale">
       <div className="mobile-navbar-icon">
@@ -64,11 +64,6 @@ export default function ModaleSignup() {
           Inscription
         </div>
       </div>
-
-      {/* <button className="modale-button" type="button" onClick={handleOpen}>
-        <ProfileIcon />
-        Inscription
-      </button> */}
       <Modal
         open={open}
         onClose={handleClose}

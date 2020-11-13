@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import Resizer from "react-image-file-resizer";
-import emptyImage from "../../../images/empty.png";
 import Add from "../../atoms/SVG/Add";
 import "../CreateBooks/CreateBooks.scss";
 
 export default function UpdateBook() {
   const history = useHistory();
-  const { title } = useParams();
+  const { urlTitle } = useParams();
   const [booksImage, setBooksImage] = useState("");
   const [previewImages, setPreviewImages] = useState(null);
 
   const [books, setBooks] = useState({
     ISBN: "",
     title: "",
+    urlTitle: "",
     summary: "",
     author: "",
     publicationDate: "",
@@ -32,7 +32,7 @@ export default function UpdateBook() {
       try {
         const result = await axios(
           // eslint-disable-next-line camelcase
-          `http://localhost:8085/api/books/${title}`
+          `http://localhost:8085/api/books/${urlTitle}`
         );
         setBooks(result.data);
         setPreviewImages(result.data.uploadPicture);
@@ -83,6 +83,7 @@ export default function UpdateBook() {
       const formData = new FormData();
       formData.set("ISBN", books.ISBN);
       formData.set("title", books.title);
+      formData.set("urlTitle", books.urlTitle);
       formData.set("summary", books.summary);
       formData.set("author", books.author);
       formData.set("publicationDate", books.publicationDate);
@@ -99,12 +100,12 @@ export default function UpdateBook() {
         },
       };
       const result = await axios.put(
-        `http://localhost:8085/api/books/${title}`,
+        `http://localhost:8085/api/books/${urlTitle}`,
         formData,
         header
       );
       console.log("PUT", result.data);
-      history.push(`/books/${result.data.updateBooks.title}`);
+      history.push(`/books/${result.data.updateBooks.urlTitle}`);
     } catch (error) {
       setBooks({
         ...books,
@@ -118,7 +119,7 @@ export default function UpdateBook() {
     <>
       <div className="createbooks">
         <div className="createbooks-title">
-          <h1>Modification d'annonce de livre</h1>
+          <h1>Modification</h1>
         </div>
         <form
           action="POST"

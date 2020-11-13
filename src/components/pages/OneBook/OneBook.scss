@@ -18,6 +18,7 @@
 }
 
 .div {
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,6 +65,7 @@
         font-family: "homeFontSemiBold";
       }
       & p {
+        word-break: break-word;
         font-size: 1.4rem;
         line-height: 1.3em;
       }
@@ -81,6 +83,32 @@
             font-family: "homeFont";
           }
         }
+      }
+    }
+  }
+  &-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-update {
+      padding: 1%;
+      width: 90%;
+      &-button {
+        padding: 2%;
+        width: 100%;
+        background-color: $blue;
+        color: $off-white;
+      }
+    }
+    &-delete {
+      padding: 1%;
+      width: 90%;
+      &-button {
+        padding: 2%;
+        width: 100%;
+        background-color: $blue;
+        color: $off-white;
       }
     }
   }

@@ -73,7 +73,7 @@ export default function ModaleAlert({ OneBook }) {
   return (
     <div>
       <button
-        className="profil_testimonies_box_buttons_update"
+        className="div-button-delete-button"
         type="button"
         onClick={handleOpen}
       >

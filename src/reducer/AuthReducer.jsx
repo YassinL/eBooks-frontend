@@ -1,10 +1,4 @@
 module.exports = {
-  initialState: {
-    isAuthenticated: false,
-    token: null,
-    user: null,
-  },
-
   reducer: (state, action) => {
     switch (action.type) {
       case "SIGNIN":
@@ -13,13 +7,17 @@ module.exports = {
           ...state,
           isAuthenticated: true,
           token: action.payload.data.token,
-          user: action.payload.config.user,
+          user: action.payload.data.user,
+          roleAdmin: action.payload.data.user.roleAdmin,
+          isLoading: false,
         };
       case "LOAD_USER":
         return {
           ...state,
           isAuthenticated: true,
           user: action.payload,
+          roleAdmin: action.payload.roleAdmin,
+          isLoading: false,
         };
       case "LOGOUT":
         localStorage.clear();
@@ -28,6 +26,15 @@ module.exports = {
           isAuthenticated: false,
           user: null,
           token: null,
+          isLoading: false,
+        };
+      case "NO_USER":
+        return {
+          ...state,
+          isAuthenticated: false,
+          user: null,
+          roleAdmin: null,
+          isLoading: false,
         };
       default:
         return state;

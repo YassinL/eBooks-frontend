@@ -1,0 +1,312 @@
+@import "../../_settings/variables";
+@import "../../_settings/mixins";
+
+.form {
+  margin-top: 30px;
+
+  @include media(tablet) {
+    position: relative;
+  }
+  &_title {
+    display: flex;
+    justify-content: center;
+    padding: 4% 0;
+  }
+  &_successSend {
+    width: 100%;
+    padding: 5%;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    background-color: $light-grey;
+
+    @include media(tablet) {
+      width: 52.5%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 0;
+      height: 40px;
+      align-items: center;
+    }
+  }
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include media(tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.input_text {
+  border-left: 2px solid $middle-grey;
+  width: 92%;
+  margin-bottom: 15px;
+
+  @include media(tablet) {
+    width: 47.5%;
+  }
+
+  &_field {
+    height: 40px;
+    width: 100%;
+    border: none;
+    background-color: $light-grey;
+    outline: none;
+    cursor: pointer;
+    padding: 0 10px;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.2rem;
+    transition: 0.5s;
+
+    &::placeholder {
+      color: $grey;
+      text-transform: uppercase;
+      transition: 0.25s;
+    }
+
+    &:focus {
+      background-color: $off-white;
+      transition: background-color 0.5s;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+  &_label {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    width: 1px;
+  }
+}
+
+.input_email {
+  width: 92%;
+  border-left: 2px solid $middle-grey;
+  margin-bottom: 15px;
+
+  @include media(tablet) {
+    width: 47.5%;
+  }
+
+  &_field {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: $light-grey;
+    outline: none;
+    cursor: pointer;
+    padding: 0 10px;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.2rem;
+    transition: 0.5s;
+
+    &::placeholder {
+      color: $grey;
+      text-transform: uppercase;
+      transition: 0.25s;
+    }
+
+    &:focus {
+      background-color: $off-white;
+      transition: background-color 0.5s;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+  &_label {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    width: 1px;
+  }
+}
+
+.input_tel {
+  width: 92%;
+  border-left: 2px solid $middle-grey;
+  margin-bottom: 15px;
+
+  @include media(tablet) {
+    width: 47.5%;
+  }
+
+  &_field {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: $light-grey;
+    outline: none;
+    cursor: pointer;
+    padding: 0 10px;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.2rem;
+    transition: 0.5s;
+
+    &::placeholder {
+      color: $grey;
+      text-transform: uppercase;
+      transition: 0.25s;
+    }
+
+    &:focus {
+      background-color: $off-white;
+      transition: background-color 0.5s;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+  &_label {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    width: 1px;
+  }
+}
+
+.input_select {
+  width: 92%;
+  border-left: 2px solid $middle-grey;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+
+  &_textField {
+    font-size: 1.2rem;
+    height: 40px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0 0 0 10px;
+    color: $grey;
+    background-color: $light-grey;
+  }
+
+  &_field {
+    display: flex;
+    flex: 1;
+    width: auto;
+    height: 40px;
+    border: none;
+    background-color: $light-grey;
+    outline: none;
+    cursor: pointer;
+    color: $grey;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.2rem;
+    transition: 0.5s;
+    text-transform: uppercase;
+  }
+
+  &_label {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    width: 1px;
+  }
+}
+
+.textarea {
+  min-width: 92%;
+  min-height: 100px;
+  border: none;
+  background-color: $light-grey;
+  border-left: 2px solid $middle-grey;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  resize: none;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.2rem;
+  transition: 0.5s;
+  margin-bottom: 15px;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: $off-white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $soft-grey;
+  }
+
+  &::placeholder {
+    color: $grey;
+    text-transform: uppercase;
+    transition: 0.25s;
+  }
+
+  &:focus {
+    background-color: $off-white;
+    transition: background-color 0.5s;
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  &_label {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    width: 1px;
+  }
+}
+
+.input_submit {
+  width: 92%;
+  margin-bottom: 10%;
+  border-left: 2px solid $middle-grey;
+
+  &_button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: $soft-grey;
+    outline: none;
+    cursor: pointer;
+    padding: 0 10px;
+    text-transform: uppercase;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.2rem;
+    transition: 0.5s ease-in-out;
+    color: $grey;
+
+    & span {
+      opacity: 0;
+      margin-left: -10px;
+      transition: 0.5s;
+    }
+
+    &:hover {
+      span {
+        opacity: 1;
+        margin-left: 5px;
+        transition: 0.5s;
+      }
+    }
+
+    @include media(tablet) {
+      width: 47.5%;
+    }
+  }
+}

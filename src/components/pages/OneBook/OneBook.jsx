@@ -4,7 +4,7 @@ import Moment from "react-moment";
 import "moment-timezone";
 // import "moment/locale/fr";
 import { useParams, Link } from "react-router-dom";
-import ModaleAlert from "../../organisms/ModaleAlert/ModaleAlert";
+import ModaleDelete from "../../organisms/ModaleAlert/ModaleAlert";
 import OneBookContext from "../../../contexts/OneBookContext";
 import AuthContext from "../../../contexts/AuthContext";
 import "./OneBook.scss";
@@ -22,12 +22,12 @@ export default function OneBook() {
     fetchData();
   }, [urlTitle]);
 
-  const { state, dispatch } = useContext(AuthContext);
+  const { state } = useContext(AuthContext);
   useEffect(() => {
     return () => {};
   }, [state]);
 
-  console.log("STATE", state.user);
+  console.log("context", context.oneBook.urlTitle);
   return (
     <div className="div">
       <div className="div-oneBook">
@@ -79,18 +79,23 @@ export default function OneBook() {
           </div>
         </div>
       </div>
-      {state.user && state.user.roleAdmin === true ? (
+      {state.roleAdmin === true ? (
         <div className="div-button">
-          <ModaleAlert OneBook={context.oneBook} />
-          <button className="div-button-admin">
-            <Link
-              className="div-button-admin-link"
-              to={`/update-books/${context.oneBook.title}`}
-            >
-              {" "}
-              Modifier
-            </Link>
-          </button>
+          <div className="div-button-delete">
+            <ModaleDelete OneBook={context.oneBook} />
+          </div>
+
+          <div className="div-button-update">
+            <button className="div-button-update-button">
+              <Link
+                className="div-button-update-button-link"
+                to={`/update-books/${context.oneBook.urlTitle}`}
+              >
+                {" "}
+                Modifier l'annonce de livre
+              </Link>
+            </button>
+          </div>
         </div>
       ) : null}
     </div>

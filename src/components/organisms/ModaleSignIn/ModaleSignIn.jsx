@@ -119,7 +119,7 @@ export default function ModaleSignup() {
                 Envoyer
               </Button>
               {connexion.errorMessage && (
-                <span className="form-error">
+                <span className="span-error">
                   {connexion.errorMessage.data.description}
                 </span>
               )}

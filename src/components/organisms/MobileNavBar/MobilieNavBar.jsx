@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import HomeIcon from "../../atoms/SVG/HomeIcon";
 import LivreIcon from "../../atoms/SVG/LivreIcon";
 import LogOutIcon from "../../atoms/SVG/LogOutIcon";
@@ -39,8 +39,10 @@ export default function NavBar() {
     );
   };
 
+  const history = useHistory();
   const logOut = () => {
-    return dispatch({ type: "LOGOUT" });
+    dispatch({ type: "LOGOUT" });
+    history.push("/");
   };
 
   const Profil = () => {

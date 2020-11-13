@@ -76,5 +76,26 @@
         }
       }
     }
+    &-create {
+      padding-top: 5%;
+
+      &-title {
+        padding: 2% 4%;
+        & h2 {
+          font-family: "homeFontSemiBold";
+        }
+      }
+      &-books {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-button {
+          padding: 2%;
+          width: 90%;
+          background-color: $blue;
+          color: $off-white;
+        }
+      }
+    }
   }
 }
