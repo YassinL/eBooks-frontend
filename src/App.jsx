@@ -45,26 +45,28 @@ export default function App() {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-         const result = await Axios(`http://localhost:8085/api/user/me`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setUser(result.data);
-        dispatch({
-          type: "LOAD_USER",
-          payload: result.data,
-        }); 
-        }
-        catch (error) {
+          const result = await Axios(`http://localhost:8085/api/user/me`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setUser(result.data);
+          if (result.status === 200) {
+            dispatch({
+              type: "LOAD_USER",
+              payload: result.data,
+            });
+          }
+        } catch (error) {
           dispatch({
             type: "LOGOUT",
-          })
+          });
         }
+      } else {
+        dispatch({
+          type: "NO_USER",
+        });
       }
-      dispatch({
-        type: "NO_USER",
-      })
     };
     fetchUser();
   }, []);

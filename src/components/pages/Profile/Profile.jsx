@@ -58,48 +58,50 @@ export default function Profile() {
             {user.firstName} {user.lastName}
           </h2>
         </div>
-        <div className="profile-header-details">
-          <div className="profile-header-details-logo">
-            <Box />
-          </div>
-          <div className="profile-header-details-title">
-            <h3>Mes Commandes</h3>
-          </div>
-        </div>
-        <div className="profile-header-details">
-          <div className="profile-header-details-logo">
-            <Info />
-          </div>
-          <div className="profile-header-details-title">
-            <h3>Mes informations</h3>
-          </div>
-        </div>
-        <div className="profile-header-details">
-          <div className="profile-header-details-logo">
-            <Card />
-          </div>
-          <div className="profile-header-details-title">
-            <h3>Modes de paiements</h3>
-          </div>
-        </div>
-        {state.roleAdmin === true ? (
-          <div className="profile-header-create">
-            <div className="profile-header-create-title">
-              <h2>Partie Administrateur</h2>
+        <div className="profile-header-middle">
+          <div className="profile-header-middle-details">
+            <div className="profile-header-middle-details-logo">
+              <Box />
             </div>
-            <div className="profile-header-create-books">
-              <button className="profile-header-create-books-button">
-                <Link
-                  className="profile-header-create-button-books-link"
-                  to={`/create-books`}
-                >
-                  {" "}
-                  Créer une annonce de livre
-                </Link>
-              </button>
+            <div className="profile-header-middle-details-title">
+              <h3>Mes Commandes</h3>
             </div>
           </div>
-        ) : null}
+          <div className="profile-header-middle-details">
+            <div className="profile-header-middle-details-logo">
+              <Info />
+            </div>
+            <div className="profile-header-middle-details-title">
+              <h3>Mes informations</h3>
+            </div>
+          </div>
+          <div className="profile-header-middle-details">
+            <div className="profile-header-middle-details-logo">
+              <Card />
+            </div>
+            <div className="profile-header-middle-details-title">
+              <h3>Modes de paiements</h3>
+            </div>
+          </div>
+          {state.roleAdmin === true ? (
+            <div className="profile-header-middle-create">
+              <div className="profile-header-middle-create-title">
+                <h2>Partie Administrateur</h2>
+              </div>
+              <div className="profile-header-middle-create-books">
+                <button className="profile-header-middle-create-books-button">
+                  <Link
+                    className="profile-header-middle-create-button-books-link"
+                    to={`/create-books`}
+                  >
+                    {" "}
+                    Créer une annonce de livre
+                  </Link>
+                </button>
+              </div>
+            </div>
+          ) : null}
+        </div>
       </div>
     </div>
   );

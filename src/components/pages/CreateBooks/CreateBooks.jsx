@@ -111,7 +111,12 @@ export default function CreateBook() {
         <div className="createbooks-title">
           <h1>Création de livre</h1>
         </div>
-        <form className="createbooks-form" onSubmit={handleSubmit}>
+        <form
+          action="POST"
+          encType="multipart/form-data"
+          className="createbooks-form"
+          onSubmit={handleSubmit}
+        >
           <div className="createbooks-form-preview">
             <img
               className="createbooks-form-preview-image"
@@ -130,97 +135,100 @@ export default function CreateBook() {
               />
             </label>
           </div>
-          <label htmlFor="genreLivreId">
-            Genres
-            <input
-              name="genreLivreId"
-              onChange={handleChange}
-              value={books.genreLivreId}
-              type="text"
-              placeholder="Genre Du livre"
-            />
-          </label>
-          <label htmlFor="ISBN">
-            ISBN
-            <input
-              name="ISBN"
-              onChange={handleChange}
-              value={books.ISBN}
-              type="number"
-              placeholder="Numéro ISBN"
-            />
-          </label>
-          <label htmlFor="name">
-            Title
-            <input
-              name="title"
-              onChange={handleChange}
-              value={books.title}
-              type="text"
-              placeholder="Titre"
-            />
-          </label>
-          <label htmlFor="summary">
-            Résumé
-            <textarea
-              name="summary"
-              onChange={handleChange}
-              value={books.summary}
-              type="text"
-              placeholder="Résumé"
-            />
-          </label>
-          <label htmlFor="author">
-            Auteur
-            <input
-              name="author"
-              onChange={handleChange}
-              value={books.author}
-              type="text"
-              placeholder="Auteur"
-            />
-          </label>
-          <label htmlFor="language">
-            Langue
-            <input
-              name="language"
-              onChange={handleChange}
-              value={books.language}
-              type="text"
-              placeholder="Langue du livre"
-            />
-          </label>
-          <label htmlFor="price">
-            Prix
-            <input
-              name="price"
-              onChange={handleChange}
-              value={books.price}
-              type="number"
-              placeholder="Prix"
-              min="0"
-            />
-          </label>
-          <label htmlFor="pagesNumber">
-            Nombre de Pages
-            <input
-              name="pagesNumber"
-              onChange={handleChange}
-              value={books.pagesNumber}
-              type="number"
-              placeholder="Nombre de pages"
-            />
-          </label>
-          <label htmlFor="publicationDate">
-            Date de Publication
-            <input
-              name="publicationDate"
-              onChange={handleChange}
-              value={books.publicationDate}
-              type="date"
-              placeholder="Date de publication"
-            />
-          </label>
+          <div className="createbooks-form-form2">
+            <label htmlFor="genreLivreId">
+              Genres
+              <input
+                name="genreLivreId"
+                onChange={handleChange}
+                value={books.genreLivreId}
+                type="text"
+                placeholder="Genre Du livre"
+              />
+            </label>
+            <label htmlFor="ISBN">
+              ISBN
+              <input
+                name="ISBN"
+                onChange={handleChange}
+                value={books.ISBN}
+                type="number"
+                placeholder="Numéro ISBN"
+              />
+            </label>
+            <label htmlFor="name">
+              Title
+              <input
+                name="title"
+                onChange={handleChange}
+                value={books.title}
+                type="text"
+                placeholder="Titre"
+              />
+            </label>
+            <label htmlFor="summary">
+              Résumé
+              <textarea
+                name="summary"
+                onChange={handleChange}
+                value={books.summary}
+                type="text"
+                placeholder="Résumé"
+              />
+            </label>
+            <label htmlFor="author">
+              Auteur
+              <input
+                name="author"
+                onChange={handleChange}
+                value={books.author}
+                type="text"
+                placeholder="Auteur"
+              />
+            </label>
+            <label htmlFor="language">
+              Langue
+              <input
+                name="language"
+                onChange={handleChange}
+                value={books.language}
+                type="text"
+                placeholder="Langue du livre"
+              />
+            </label>
+            <label htmlFor="price">
+              Prix
+              <input
+                name="price"
+                onChange={handleChange}
+                value={books.price}
+                type="number"
+                placeholder="Prix"
+                min="0"
+              />
+            </label>
+            <label htmlFor="pagesNumber">
+              Nombre de Pages
+              <input
+                name="pagesNumber"
+                onChange={handleChange}
+                value={books.pagesNumber}
+                type="number"
+                placeholder="Nombre de pages"
+              />
+            </label>
+            <label htmlFor="publicationDate">
+              Date de Publication
+              <input
+                name="publicationDate"
+                onChange={handleChange}
+                value={books.publicationDate}
+                type="date"
+                placeholder="Date de publication"
+              />
+            </label>
+          </div>
+
           <span>{books.errorMessage}</span>
           <button type="submit">Ajouter le livre</button>
         </form>

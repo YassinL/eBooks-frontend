@@ -1,4 +1,5 @@
 @import "../../_settings/variables";
+@import "../../_settings/mixins";
 @font-face {
   font-family: "homeFontBold";
   src: local("homeFontBold"),
@@ -18,26 +19,46 @@
 }
 
 .div {
-  height: 80vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: $off-white;
   &-oneBook {
+    height: 70vh;
     padding: 10% 5% 5% 5%;
     display: flex;
     flex-wrap: wrap;
+    @include media(laptop) {
+      display: flex;
+      height: 100%;
+      flex-wrap: nowrap;
+      padding: 10% 5% 0 5%;
+    }
     &-description {
       width: 100%;
       display: flex;
       justify-content: space-between;
       padding-bottom: 5%;
+      @include media(laptop) {
+        flex-direction: column;
+        width: 35%;
+        padding: 2%;
+      }
       &-picture {
         width: 45vw;
         height: 30vh;
+        @include media(laptop) {
+          height: 60vh;
+          width: 25vw;
+        }
         & img {
           height: auto;
           width: 100%;
+          @include media(laptop) {
+            height: 100%;
+            width: auto;
+          }
         }
       }
       &-price {
@@ -46,41 +67,57 @@
         flex-direction: column;
         justify-content: flex-end;
         height: 25vh;
-
+        @include media(laptop) {
+          height: 5vh;
+        }
         & h3 {
           font-size: 2rem;
           font-family: "homeFontBold";
         }
       }
     }
-    &-firstDescription {
-      padding: 2% 0;
-      width: 100%;
-
-      & h2 {
-        font-family: "homeFontBold";
-      }
-      & h3 {
-        padding-bottom: 1%;
-        font-family: "homeFontSemiBold";
-      }
-      & p {
-        word-break: break-word;
-        font-size: 1.4rem;
-        line-height: 1.3em;
-      }
-    }
-    &-secondeDescription {
-      padding-top: 2%;
-      width: 100%;
-      &-details {
+    &-description1 {
+      @include media(laptop) {
         display: flex;
-        flex-direction: row;
-        & h4 {
+        flex-direction: column;
+        width: 40%;
+        padding: 2%;
+      }
+      &-firstDescription {
+        padding: 2% 0;
+        width: 100%;
+
+        & h2 {
+          font-family: "homeFontBold";
+        }
+        & h3 {
+          padding-bottom: 1%;
           font-family: "homeFontSemiBold";
-          padding: 1%;
-          & span {
-            font-family: "homeFont";
+        }
+        & p {
+          word-break: break-word;
+          font-size: 1.4rem;
+          line-height: 1.3em;
+        }
+        @include media(laptop) {
+          height: 50%;
+        }
+      }
+      &-secondeDescription {
+        padding-top: 2%;
+        width: 100%;
+        @include media(laptop) {
+          height: 50%;
+        }
+        &-details {
+          display: flex;
+          flex-direction: row;
+          & h4 {
+            font-family: "homeFontSemiBold";
+            padding: 1%;
+            & span {
+              font-family: "homeFont";
+            }
           }
         }
       }
@@ -91,9 +128,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include media(laptop) {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 2%;
+    }
     &-update {
       padding: 1%;
       width: 90%;
+      @include media(laptop) {
+        width: 25%;
+      }
       &-button {
         padding: 2%;
         width: 100%;
@@ -104,6 +149,9 @@
     &-delete {
       padding: 1%;
       width: 90%;
+      @include media(laptop) {
+        width: 25%;
+      }
       &-button {
         padding: 2%;
         width: 100%;

@@ -16,6 +16,7 @@ module.exports = {
           ...state,
           isAuthenticated: true,
           user: action.payload,
+          token: action.payload.token,
           roleAdmin: action.payload.roleAdmin,
           isLoading: false,
         };

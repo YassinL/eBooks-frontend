@@ -1,4 +1,5 @@
 @import "../../_settings/variables";
+@import "../../_settings/mixins";
 .books {
   height: 80vh;
   overflow-y: scroll;
@@ -8,6 +9,12 @@
   justify-content: space-around;
   width: 100%;
   background-color: $white;
+  @include media(laptop) {
+    justify-content: flex-start;
+    height: 100vh;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+  }
   &-fiche {
     margin: 5% 2% 0 2%;
     position: relative;
@@ -15,6 +22,10 @@
     height: 30vh;
     width: 42%;
     box-shadow: 0px 5px 11px 0px rgba(173, 173, 173, 1);
+    @include media(laptop) {
+      height: 50vh;
+      width: 15vw;
+    }
     &-photo {
       position: absolute;
       height: 85%;
@@ -44,6 +55,14 @@
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
+        @include media(laptop) {
+          font-size: 1.5rem;
+        }
+      }
+      & h5 {
+        @include media(laptop) {
+          font-size: 1.2rem;
+        }
       }
     }
   }

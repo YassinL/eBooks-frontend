@@ -1,30 +1,51 @@
+@import "../../_settings/mixins";
 .error {
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  &-title {
+  @include media(laptop) {
+    margin-top: 10%;
     display: flex;
-    flex-direction: column;
-    padding: 4%;
-    & h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #5097ab;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  &-text {
+    height: 60vh;
+    @include media(laptop) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &-title {
+      display: flex;
+      flex-direction: column;
+      padding: 4%;
+      & h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #5097ab;
+      }
+    }
+    &-link {
+      p {
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-decoration: underline;
+      }
     }
   }
-  &-link {
-    p {
-      font-size: 1.4rem;
-      font-weight: 600;
-      text-decoration: underline;
-    }
-  }
+
   &-image {
     margin: 5%;
     height: 25vh;
     width: 50vw;
+    @include media(laptop) {
+      height: 60vh;
+    }
     & img {
       height: 100%;
       width: 100%;

@@ -21,10 +21,10 @@
   &-icon {
     height: 5vh;
     @include media(laptop) {
-      height: 10vh;
       color: $off-white;
       font-size: 1.6rem;
       font-family: "homeFontBold";
+      height: auto;
     }
     &-link {
       display: flex;
@@ -34,6 +34,10 @@
       height: 100%;
       width: 100%;
       cursor: pointer;
+      @include media(laptop) {
+        height: auto;
+        width: auto;
+      }
     }
     svg {
       color: #5097ab;

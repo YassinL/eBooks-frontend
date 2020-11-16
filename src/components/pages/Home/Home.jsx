@@ -3,6 +3,8 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 import RightArrow from "../../atoms/SVG/RightArrow";
 import LeftArrow from "../../atoms/SVG/LeftArrow";
+import ReadingMan from "../../../images/homme_lire.jpg";
+import { HashLink } from "react-router-hash-link";
 import "./Home.scss";
 
 const style = {
@@ -70,41 +72,45 @@ export default function Home() {
             </h2>
           </div>
           <div className="componant-home-button">
-            <Link className="componant-home-button-link" to="/books">
+            <HashLink className="componant-home-button-link" to="/books/#">
               <button type="button">Explorer la Bibliothèque</button>
-            </Link>
+            </HashLink>
           </div>
         </section>
         <section className="componant-categorie">
-          <h1 className="componant-categorie-title">Catégories</h1>
-          <div className="componant-categorie-slider">
-            {genres.map((genre, index) => {
-              return (
-                <div
-                  key={index}
-                  className="componant-categorie-slider-name"
-                  style={{ transform: `translateX(${x}% )` }}
-                >
-                  <Link to={`/genre-livre/${genre.name}`}>
-                    <h2>{genre.name}</h2>
-                  </Link>
-                </div>
-              );
-            })}
-            <button
-              type="button"
-              className="componant-categorie-slider-left"
-              onClick={goLeft}
-            >
-              <LeftArrow />
-            </button>
-            <button
-              type="button"
-              className="componant-categorie-slider-right"
-              onClick={goRight}
-            >
-              <RightArrow />
-            </button>
+          <div className="componant-categorie-title">
+            <h1 className="componant-categorie-title-h1">Catégories</h1>
+          </div>
+          <div className="componant-categorie-bloc">
+            <div className="componant-categorie-bloc-slider">
+              {genres.map((genre, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="componant-categorie-bloc-slider-name"
+                    style={{ transform: `translateX(${x}% )` }}
+                  >
+                    <HashLink to={`/genre-livre/${genre.name}/#`}>
+                      <h2>{genre.name}</h2>
+                    </HashLink>
+                  </div>
+                );
+              })}
+              <button
+                type="button"
+                className="componant-categorie-bloc-slider-left"
+                onClick={goLeft}
+              >
+                <LeftArrow />
+              </button>
+              <button
+                type="button"
+                className="componant-categorie-bloc-slider-right"
+                onClick={goRight}
+              >
+                <RightArrow />
+              </button>
+            </div>
           </div>
         </section>
         <section className="componant-livrepopulaire">
@@ -156,21 +162,27 @@ export default function Home() {
           <div className="componant-presentation-title">
             <h1>Présentation du site</h1>
           </div>
-          <div className="componant-presentation-paragraphe">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              provident, corrupti id impedit quaerat et. Distinctio labore magni
-              officia sapiente voluptas illo non cum inventore, dolorum aut
-              dolore voluptates nesciunt suscipit velit consectetur! Voluptatem
-              minus, ipsam repellat veniam, eveniet eius perferendis beatae vel
-              nemo facere tempore impedit harum sunt excepturi. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Libero rerum
-              deleniti, mollitia ullam obcaecati totam veritatis fugit expedita
-              iste corporis? Laudantium voluptatum, alias excepturi dignissimos
-              harum ex. Perferendis, quisquam ab amet suscipit repellat eius
-              dolores ex labore, veniam mollitia vitae. Amet iure dignissimos
-              vel aliquid voluptates perspiciatis. Cumque, quaerat ab.
-            </p>
+          <div className="componant-presentation-details">
+            <div className="componant-presentation-details-image">
+              <img src={ReadingMan} alt="" />
+            </div>
+            <div className="componant-presentation-details-paragraphe">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                provident, corrupti id impedit quaerat et. Distinctio labore
+                magni officia sapiente voluptas illo non cum inventore, dolorum
+                aut dolore voluptates nesciunt suscipit velit consectetur!
+                Voluptatem minus, ipsam repellat veniam, eveniet eius
+                perferendis beatae vel nemo facere tempore impedit harum sunt
+                excepturi. Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Libero rerum deleniti, mollitia ullam obcaecati totam
+                veritatis fugit expedita iste corporis? Laudantium voluptatum,
+                alias excepturi dignissimos harum ex. Perferendis, quisquam ab
+                amet suscipit repellat eius dolores ex labore, veniam mollitia
+                vitae. Amet iure dignissimos vel aliquid voluptates
+                perspiciatis. Cumque, quaerat ab.
+              </p>
+            </div>
           </div>
         </section>
       </div>

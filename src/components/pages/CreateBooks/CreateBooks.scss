@@ -1,10 +1,14 @@
 @import "../../_settings/variables";
+@import "../../_settings/mixins";
 
 .createbooks {
   display: flex;
   flex-direction: column;
   background-color: $off-white;
   &-title {
+    @include media(laptop) {
+      margin-top: 5vh;
+    }
     & h1 {
       padding: 3%;
       text-align: center;
@@ -16,20 +20,38 @@
     align-items: center;
     flex-direction: column;
     position: relative;
+    @include media(laptop) {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
     &-preview {
       display: flex;
       justify-content: center;
       position: relative;
-      min-width: 90vw;
-      max-width: 90vw;
-      min-height: 90vw;
+      min-height: 50vw;
       max-height: 90vw;
+      @include media(laptop) {
+        margin-top: 2.5%;
+        min-width: 40vw;
+        min-height: 40vw;
+        max-width: 40vw;
+        max-height: 40vw;
+      }
       &-image {
         min-width: 90vw;
         max-width: 90vw;
         min-height: 90vw;
         max-height: 90vw;
         object-fit: cover;
+        @include media(laptop) {
+          min-width: 40vw;
+          min-height: 40vw;
+          max-width: 40vw;
+          max-height: 40vw;
+        }
       }
       &-label {
         height: 60px;
@@ -56,41 +78,51 @@
         }
       }
     }
-    & label {
-      line-height: 2;
-      display: flex;
-      flex-direction: column;
-      font-size: 1.4rem;
-      padding: 1% 0;
-      & input {
-        height: 40px;
-        background-color: $light-grey;
-        border: none;
-        padding: 2%;
-        width: 90vw;
-        &::placeholder {
-          color: $grey;
-          text-transform: uppercase;
-          transition: 0.25s;
+    &-form2 {
+      & label {
+        line-height: 2;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.4rem;
+        padding: 1% 0;
+
+        & input {
+          height: 40px;
+          background-color: $light-grey;
+          border: none;
+          padding: 2%;
+          width: 90vw;
+          &::placeholder {
+            color: $grey;
+            text-transform: uppercase;
+            transition: 0.25s;
+          }
+          @include media(laptop) {
+            width: 35vw;
+          }
         }
-      }
-      & input[type="number"] {
-        appearance: textfield;
-      }
-      & textarea {
-        background-color: $light-grey;
-        min-height: 100px;
-        border: none;
-        padding: 2%;
-        width: 90vw;
-        resize: none;
-        &::placeholder {
-          color: $grey;
-          text-transform: uppercase;
-          transition: 0.25s;
+        & input[type="number"] {
+          appearance: textfield;
+        }
+        & textarea {
+          background-color: $light-grey;
+          min-height: 100px;
+          border: none;
+          padding: 2%;
+          width: 90vw;
+          resize: none;
+          &::placeholder {
+            color: $grey;
+            text-transform: uppercase;
+            transition: 0.25s;
+          }
+          @include media(laptop) {
+            width: 35vw;
+          }
         }
       }
     }
+
     & button {
       width: 90vw;
       cursor: pointer;
@@ -104,6 +136,11 @@
       &:hover {
         background-color: #313234;
         color: $white;
+      }
+      @include media(laptop) {
+        width: 35vw;
+
+        margin: 2.5% 0;
       }
     }
   }

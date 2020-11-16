@@ -18,9 +18,17 @@
   align-items: center;
   background-color: transparent;
   position: absolute;
+  z-index: 98;
   top: 0;
+  text-shadow: 0 0 10px black;
+  background: linear-gradient(
+    rgb(146, 146, 146),
+    rgba(165, 165, 165, 0.4) 40%,
+    rgba(165, 165, 165, 0.1)
+  );
   &-icon {
     padding: 2%;
+
     & h3 {
       color: $off-white;
       font-family: "homeFontBold";

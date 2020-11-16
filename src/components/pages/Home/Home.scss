@@ -79,73 +79,114 @@
   }
 
   &-categorie {
-    &-title {
-      text-align: center;
-      padding: 10% 0;
-      color: $off-white;
+    @include media(laptop) {
     }
-    &-slider {
-      position: relative;
-      height: 10vh;
-      width: 100%;
+    &-title {
       display: flex;
-      align-items: center;
-      overflow: hidden;
-      &-name {
-        background-color: #e4e4e4;
+      justify-content: center;
+      &-h1 {
+        text-align: center;
+        padding: 10% 0;
+        color: $off-white;
+        @include media(laptop) {
+          padding: 4% 2%;
+          font-size: 4rem;
+        }
+      }
+    }
+    &-bloc {
+      @include media(laptop) {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        padding: 2%;
-        border-right: 1px solid $black-nice;
-        min-width: 32%;
-        transition: 0.5s;
-        & h2 {
-          font-size: 14px;
-          font-weight: 600;
-        }
       }
-      &-left {
-        background: rgba(0, 0, 0, 0.1);
-        position: absolute;
-        transform: translateY();
-        width: 8%;
-        height: 100%;
-        left: 0;
-        border: none;
-        outline: none;
-        transition: 0.5s;
-        &:hover {
-          background: rgba(0, 0, 0, 0.3);
-        }
-      }
-      &-right {
-        background: rgba(0, 0, 0, 0.1);
-        position: absolute;
-        transform: translateY();
-        width: 8%;
-        height: 100%;
-        right: 0;
-        border: none;
-        outline: none;
-        transition: 0.5s;
-        &:hover {
-          background: rgba(0, 0, 0, 0.3);
-        }
-      }
-      & svg {
-        height: auto;
+      &-slider {
+        position: relative;
+        height: 10vh;
         width: 100%;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        @include media(laptop) {
+          height: 25vh;
+          width: 100%;
+        }
+        &-name {
+          background-color: #e4e4e4;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          padding: 2%;
+          border-right: 1px solid $black-nice;
+          min-width: 32%;
+          transition: 0.5s;
+          @include media(laptop) {
+            min-width: 23%;
+          }
+          & h2 {
+            font-size: 14px;
+            font-weight: 600;
+            @include media(laptop) {
+              font-size: 2.5rem;
+              font-family: "homeFontSemiBold";
+            }
+          }
+        }
+        &-left {
+          background: rgba(0, 0, 0, 0.1);
+          position: absolute;
+          transform: translateY();
+          width: 8%;
+          height: 100%;
+          left: 0;
+          border: none;
+          outline: none;
+          transition: 0.5s;
+          &:hover {
+            background: rgba(0, 0, 0, 0.3);
+          }
+          @include media(laptop) {
+            width: 6%;
+          }
+        }
+        &-right {
+          background: rgba(0, 0, 0, 0.1);
+          position: absolute;
+          transform: translateY();
+          width: 8%;
+          height: 100%;
+          right: 0;
+          border: none;
+          outline: none;
+          transition: 0.5s;
+          &:hover {
+            background: rgba(0, 0, 0, 0.3);
+          }
+          @include media(laptop) {
+            width: 6%;
+          }
+        }
+        & svg {
+          height: auto;
+          width: 100%;
+        }
       }
     }
   }
   &-livrepopulaire {
     padding: 5% 0;
+    @include media(laptop) {
+      padding: 2% 0;
+    }
     &-title {
       text-align: center;
       padding: 8% 0;
       color: $off-white;
+      @include media(laptop) {
+        padding: 4% 2%;
+        font-size: 4rem;
+      }
     }
     &-sliderbooks {
       position: relative;
@@ -153,14 +194,24 @@
       width: 100%;
       display: flex;
       overflow: hidden;
+      @include media(laptop) {
+        height: 60vh;
+      }
       &-fiche {
+        margin: 1% 0;
         margin-left: 3%;
         position: relative;
         background-color: $off-white;
         height: 30vh;
         min-width: 34%;
-        box-shadow: 0px 5px 11px 0px rgba(173, 173, 173, 1);
+        box-shadow: 0px 5px 11px 0px rgb(68, 68, 68);
         transition: 0.5s;
+        @include media(laptop) {
+          margin: 1% 0;
+          margin-left: 2%;
+          height: 90%;
+          min-width: 15%;
+        }
         &-photo {
           position: absolute;
           height: 85%;
@@ -190,6 +241,14 @@
             width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
+            @include media(laptop) {
+              font-size: 1.5rem;
+            }
+          }
+          & h5 {
+            @include media(laptop) {
+              font-size: 1.2rem;
+            }
           }
         }
       }
@@ -206,6 +265,10 @@
         &:hover {
           background: rgba(0, 0, 0, 0.3);
         }
+        @include media(laptop) {
+          width: 6%;
+          height: 95%;
+        }
       }
       &-rightbooks {
         background: rgba(0, 0, 0, 0.2);
@@ -219,6 +282,10 @@
         transition: 0.5s;
         &:hover {
           background: rgba(0, 0, 0, 0.4);
+        }
+        @include media(laptop) {
+          width: 6%;
+          height: 95%;
         }
       }
       & svg {
@@ -234,22 +301,59 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @include media(laptop) {
+      padding: 2% 0;
+    }
+
     &-title {
       padding: 5% 0;
       text-align: center;
       color: $off-white;
+      @include media(laptop) {
+        padding: 2%;
+      }
+      & h1 {
+        @include media(laptop) {
+          font-size: 4rem;
+        }
+      }
     }
-    &-paragraphe {
-      color: $off-white;
-      padding: 3%;
-      height: 20vh;
-      overflow-y: scroll;
-      text-align: justify;
-      line-height: 1.4;
-      width: 90%;
-      background: rgba(0, 0, 0, 0.151);
-      border-radius: 5px;
-      font-family: "homeFontSemiBold";
+    &-details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-image {
+        display: none;
+        @include media(laptop) {
+          display: block;
+          height: 70vh;
+          & img {
+            border-radius: 7px;
+            height: 100%;
+            width: auto;
+          }
+        }
+      }
+      &-paragraphe {
+        color: $off-white;
+        padding: 3%;
+        height: 20vh;
+        overflow-y: scroll;
+        text-align: justify;
+        line-height: 1.4;
+        width: 90%;
+        background: rgba(0, 0, 0, 0.151);
+        border-radius: 5px;
+        font-family: "homeFontSemiBold";
+        @include media(laptop) {
+          width: 50%;
+          height: 70vh;
+          margin-left: 2%;
+          & p {
+            font-size: 1.6rem;
+          }
+        }
+      }
     }
   }
 }

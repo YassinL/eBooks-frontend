@@ -1,4 +1,8 @@
+@import "../../_settings/mixins";
 .footer {
+  @include media(laptop) {
+    padding-bottom: 1%;
+  }
   padding-bottom: 20%;
   background-color: #313234;
   &-componant {
@@ -9,23 +13,40 @@
       &-contact {
         padding: 2%;
         color: white;
+        & h4 {
+          @include media(laptop) {
+            font-size: 1.8rem;
+          }
+        }
       }
     }
     &-sociaux {
       padding: 4%;
       display: flex;
       justify-content: center;
+      @include media(laptop) {
+        padding: 2%;
+      }
       &-instagram {
         height: 3vh;
         padding: 0 1%;
+        @include media(laptop) {
+          height: 5vh;
+        }
       }
       &-facebook {
         height: 3vh;
         padding: 0 1%;
+        @include media(laptop) {
+          height: 5vh;
+        }
       }
       &-linkedin {
         height: 3vh;
         padding: 0 1%;
+        @include media(laptop) {
+          height: 5vh;
+        }
       }
       & svg {
         height: 100%;

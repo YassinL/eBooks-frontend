@@ -1,5 +1,5 @@
 @import "../../_settings/variables";
-
+@import "../../_settings/mixins";
 .searchMobile {
   margin-left: 5vw;
   height: 10vh;
@@ -7,11 +7,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include media(laptop) {
+    width: 40vw;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    align-items: flex-start;
+    z-index: 999;
+  }
   &-form {
     display: flex;
     justify-content: center;
     background-color: $off-white;
     width: 80%;
+    @include media(laptop) {
+      width: 55%;
+    }
     &-label {
       width: 100%;
       display: flex;

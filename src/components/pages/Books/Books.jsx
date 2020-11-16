@@ -5,16 +5,13 @@ import SearchForm from "../../organisms/SearchMobile/Search";
 import "./Books.scss";
 
 export default function Books() {
-  // const context = useContext(ContextRecherche);
-  // const booksContext = useContext(BooksContext);
   const [books, setBooks] = useState([]);
   const [booksError, setBooksError] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let url = `http://localhost:8085/api/books?`;
-        const result = await Axios(`${url}`);
+        const result = await Axios(`http://localhost:8085/api/books?`);
 
         setBooks(result.data);
       } catch (error) {
@@ -25,17 +22,11 @@ export default function Books() {
     fetchData();
   }, []);
 
-  // const urlTitle = (title) => {
-  //   const test = title.replace(/ /g, "-");
-  //   return test;
-  // };
-
   const [searchForm, setSearchForm] = useState("");
 
   const booksfilter = useMemo(() => {
     if (!searchForm) return books;
     return books.filter((book) => {
-      console.log(book);
       return (
         book.author.toLowerCase().includes(searchForm.toLowerCase()) ||
         book.title.toLowerCase().includes(searchForm.toLowerCase())
@@ -45,7 +36,9 @@ export default function Books() {
 
   return (
     <>
-      <SearchForm value={searchForm} onChange={setSearchForm} />
+      <div className="searchBar">
+        <SearchForm value={searchForm} onChange={setSearchForm} />
+      </div>
       {booksError !== "" ? (
         <div className="span">
           <span className="span-error">
