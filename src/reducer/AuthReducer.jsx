@@ -27,6 +27,7 @@ module.exports = {
           isAuthenticated: false,
           user: null,
           token: null,
+          roleAdmin: null,
           isLoading: false,
         };
       case "NO_USER":
@@ -34,6 +35,7 @@ module.exports = {
           ...state,
           isAuthenticated: false,
           user: null,
+          token: null,
           roleAdmin: null,
           isLoading: false,
         };

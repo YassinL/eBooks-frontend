@@ -68,7 +68,10 @@
         justify-content: flex-end;
         height: 25vh;
         @include media(laptop) {
+          display: flex;
+          align-items: flex-end;
           height: 5vh;
+          padding-right: 10%;
         }
         & h3 {
           font-size: 2rem;
@@ -124,11 +127,13 @@
     }
   }
   &-button {
+    padding-top: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     @include media(laptop) {
+      padding-top: 0%;
       display: flex;
       flex-direction: row;
       margin-bottom: 2%;

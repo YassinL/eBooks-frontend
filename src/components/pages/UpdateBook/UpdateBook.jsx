@@ -36,6 +36,7 @@ export default function UpdateBook() {
         );
         setBooks(result.data);
         setPreviewImages(result.data.uploadPicture);
+        console.log(result);
       } catch (error) {
         history.push("/error");
       }

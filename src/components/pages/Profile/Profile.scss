@@ -19,12 +19,12 @@
   &-header {
     height: 35vh;
     @include media(laptop) {
-      height: 50vh;
+      height: 60vh;
     }
     &-photo {
       height: 17vh;
       @include media(laptop) {
-        height: 25vh;
+        height: 35vh;
       }
     }
     &-initiale {
@@ -41,7 +41,8 @@
       border: 3px solid #e4e4e4;
       border-radius: 50%;
       @include media(laptop) {
-        top: 25%;
+        top: 47%;
+        left: 8%;
       }
       & h1 {
         color: $off-white;
@@ -51,14 +52,14 @@
       padding-bottom: 5%;
       display: flex;
       flex-direction: column;
-      @include media(laptop) {
-        padding-top: 5%;
-      }
       align-items: center;
       justify-content: flex-end;
       height: 20vh;
       border-bottom: 5px solid #e4e4e4;
       @include media(laptop) {
+        display: flex;
+        padding-left: 13%;
+        align-items: flex-start;
         padding-top: 8%;
       }
       &-bonjour {
@@ -80,10 +81,14 @@
         overflow-y: scroll;
         @include media(laptop) {
           width: 45%;
+          margin: 1% 0;
         }
         &-logo {
           height: 5vh;
           margin: 0 6%;
+          @include media(laptop) {
+            height: 8vh;
+          }
         }
         & svg {
           height: 100%;
@@ -119,7 +124,7 @@
           @include media(laptop) {
             display: flex;
             justify-content: flex-start;
-            padding-left: 3%;
+            padding-left: 3.5%;
           }
           &-button {
             padding: 2%;

@@ -127,7 +127,7 @@ export default function ContactForm() {
             name="phoneNumber"
             id="phoneNumber"
             placeholder="Téléphone"
-            value={inputForm.tel}
+            value={inputForm.phoneNumber}
             onChange={handleChange}
             required
           />

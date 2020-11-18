@@ -26,7 +26,7 @@ export default function OneBook() {
   useEffect(() => {
     return () => {};
   }, [state]);
-
+  console.log("ADMIN", state.roleAdmin);
   console.log("context", context.oneBook);
   return (
     <div className="div">

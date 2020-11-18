@@ -24,10 +24,10 @@
   background: linear-gradient(
     rgb(146, 146, 146),
     rgba(165, 165, 165, 0.4) 40%,
-    rgba(165, 165, 165, 0.1)
+    rgba(165, 165, 165, 0)
   );
   &-icon {
-    padding: 2%;
+    padding: 3% 2%;
 
     & h3 {
       color: $off-white;

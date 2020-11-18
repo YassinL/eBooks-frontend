@@ -57,7 +57,7 @@ export default function GenreLivre() {
         {booksfilter.map((genreBook, i) => {
           return (
             <div className="books-fiche" key={i}>
-              <Link to={`/books/${genreBook.title}`}>
+              <Link to={`/books/${genreBook.urlTitle}`}>
                 <div className="books-fiche-photo">
                   <img src={genreBook.uploadPicture} alt="" />
                 </div>

@@ -95,14 +95,14 @@ export default function NavBar() {
             </div>
           </Link>
         </div>
-        <div className="mobile-navbar-icon">
+        {/* <div className="mobile-navbar-icon">
           <Link to="/">
             <div className="mobile-navbar-icon-link">
               <PanierIcon />
               <p>Panier</p>
             </div>
           </Link>
-        </div>
+        </div> */}
         <ProfilIsAuth />
       </div>{" "}
     </>

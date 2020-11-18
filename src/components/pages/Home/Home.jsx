@@ -168,19 +168,24 @@ export default function Home() {
             </div>
             <div className="componant-presentation-details-paragraphe">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                provident, corrupti id impedit quaerat et. Distinctio labore
-                magni officia sapiente voluptas illo non cum inventore, dolorum
-                aut dolore voluptates nesciunt suscipit velit consectetur!
-                Voluptatem minus, ipsam repellat veniam, eveniet eius
-                perferendis beatae vel nemo facere tempore impedit harum sunt
-                excepturi. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Libero rerum deleniti, mollitia ullam obcaecati totam
-                veritatis fugit expedita iste corporis? Laudantium voluptatum,
-                alias excepturi dignissimos harum ex. Perferendis, quisquam ab
-                amet suscipit repellat eius dolores ex labore, veniam mollitia
-                vitae. Amet iure dignissimos vel aliquid voluptates
-                perspiciatis. Cumque, quaerat ab.
+                Mon projet est un site dont le but principal est de trouver et
+                d’acheter des livres d’occasion. Ce sera une interface
+                utilisateur de gestion de contenus, et de e-commerce par la
+                suite. Les utilisateurs visés sont des personnes qui sont dans
+                une démarche éco-responsable, ils sont sensibles aux circuits
+                alternatifs de recherche de particulier à particulier pour
+                trouver des produits de seconde main, qui représentent des
+                achats plus abordables, ici des livres qu’on ne trouve pas
+                partout et pour un prix avantageux. La démarche de ce projet est
+                de mettre en place une recherche et une sélection des livres
+                accessibles : autant pour l’administrateur avec une base de
+                données correctement organisée, que pour l’utilisateur avec une
+                catégorisation des contenus intuitive et pratique. Ce projet
+                vise à correspondre à un maximum de types d’utilisateurs, et est
+                donc accessible sur plusieurs supports (mobile, tablette, et ​
+                desktop ​ ). Par ailleurs, comme le recommandent les normes de
+                référencement de Google, je l’ai développé en format ​ mobile
+                first ​ .
               </p>
             </div>
           </div>

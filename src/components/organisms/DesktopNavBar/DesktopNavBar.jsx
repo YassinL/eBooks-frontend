@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ModaleSignUp from "../ModaleSignUp/ModaleSignUp";
 import ModaleSignIn from "../ModaleSignIn/ModaleSignIn";
 import AuthContext from "../../../contexts/AuthContext";
@@ -22,8 +22,10 @@ export default function DesktopNavBar() {
     );
   };
 
+  const history = useHistory();
   const logOut = () => {
-    return dispatch({ type: "LOGOUT" });
+    dispatch({ type: "LOGOUT" });
+    history.push("/");
   };
 
   const Profil = () => {
@@ -32,7 +34,7 @@ export default function DesktopNavBar() {
         <div className="desktop-navbar-icon">
           <Link to="/profile">
             <div className="desktop-navbar-icon-link">
-              <h3>Profile</h3>
+              <h3>Profil</h3>
             </div>
           </Link>
         </div>
@@ -68,13 +70,13 @@ export default function DesktopNavBar() {
             </div>
           </Link>
         </div>
-        <div className="desktop-navbar-icon">
+        {/* <div className="desktop-navbar-icon">
           <Link to="/">
             <div className="desktop-navbar-icon-link">
               <h3>Panier</h3>
             </div>
           </Link>
-        </div>
+        </div> */}
         <ProfilIsAuth />
       </div>{" "}
     </>
