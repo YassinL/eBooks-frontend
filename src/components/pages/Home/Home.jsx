@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import RightArrow from "../../atoms/SVG/RightArrow";
 import LeftArrow from "../../atoms/SVG/LeftArrow";
 import ReadingMan from "../../../images/homme_lire.jpg";
-import { HashLink } from "react-router-hash-link";
 import "./Home.scss";
 
 const style = {
@@ -32,7 +33,6 @@ export default function Home() {
       try {
         const result = await Axios(`http://localhost:8085/api/random-books`);
         console.log(result);
-
         setBooks(result.data);
       } catch (error) {
         setRandomError(error.response.data);

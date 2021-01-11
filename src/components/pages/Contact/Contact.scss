@@ -30,6 +30,11 @@
       height: 40px;
       align-items: center;
     }
+    @include media(laptop) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 

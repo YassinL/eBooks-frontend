@@ -1,3 +1,5 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/destructuring-assignment */
 import Axios from "axios";
 import React, { useContext, useEffect } from "react";
 import Moment from "react-moment";

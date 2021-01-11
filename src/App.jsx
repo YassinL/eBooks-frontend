@@ -20,11 +20,13 @@ const initialState = {
 };
 
 export default function App() {
+  // context d'un seul livre
   const [oneBook, setOneBook] = useState([]);
   const oneBookValue = {
     oneBook,
     setOneBook,
   };
+
   // authentification
   const [state, dispatch] = useReducer(AuthReducer.reducer, initialState);
 
@@ -40,6 +42,7 @@ export default function App() {
     setUser,
   };
 
+  // Fetch de la route User/me pour conserver le state du USER
   useEffect(() => {
     const fetchUser = async () => {
       const token = localStorage.getItem("token");
